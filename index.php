@@ -9,7 +9,7 @@
 <body>
 	<div class="container">
 		<div class = "header"><h1>opencards</h1></div>
-		<?php echo("hello" . htmlspecialchars($_GET["deck"])); ?>
+		<?php echo("hello" . htmlspecialchars($_GET[""])); ?>
 	</div>
 </body>
 
