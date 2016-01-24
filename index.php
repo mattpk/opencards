@@ -1,5 +1,9 @@
-<?php
+<!doctype html>
+<html>
+<head><title>OpenCards</title></head>
 
-echo "Hello World!";
+<body>
 
-?>
+</body>
+
+</html>

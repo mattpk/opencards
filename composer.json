@@ -1,5 +1,9 @@
 {
   "require-dev": {
     "heroku/heroku-buildpack-php": "*"
+  },
+  "require": {
+    "twbs/bootstrap": "^3.3",
+    "components/jquery": "^2.2"
   }
 }
