@@ -11,7 +11,7 @@
     <title>OpenCards</title>
 
     <!-- Bootstrap core CSS -->
-    <!--<link href="./vendor/twbs/bootstrap/docs/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="./vendor/twbs/bootstrap/docs/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="./vendor/twbs/bootstrap/docs/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
