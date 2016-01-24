@@ -1,1 +1,3 @@
-flashcard app in progress ^^
+opencards
+
+mit license
