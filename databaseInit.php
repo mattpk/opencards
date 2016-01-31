@@ -1,4 +1,14 @@
 <?php
+function console_log( $data ) {
+
+    if ( is_array( $data ) )
+        $output = "<script>console.log( 'php: " . implode( ',', $data) . "' );</script>";
+    else
+        $output = "<script>console.log( 'php: " . $data . "' );</script>";
+
+    echo $output;
+}
+
 // databaseInit.php connects to the DB, checks if the necessary base table exists, if not, creates it.
 // remember to $db.close() later
 
@@ -36,5 +46,5 @@ if (!$tableExists) {
 
 
 
-echo "success init";
+console_log("success init");
 ?>
