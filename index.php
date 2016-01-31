@@ -9,8 +9,7 @@
 	<title>OpenCards</title>
 </head>
 <body>
-	<div class ="header"><a href="index.php"><img style="display:block;    max-width: 100%;
-    height: auto; margin-left:auto; margin-right: auto;" src="./img/logo.png"></img></a></div>
+	<div class ="header"><a href="index.php"><img style="display:block; max-width: 100%; height: auto; margin-left:auto; margin-right: auto;" src="./img/logo.png"></img></a></div>
 	<div class="container">
 		<?php
 		require 'databaseInit.php';
@@ -23,7 +22,7 @@
 		<script>var getExists = <?php echo json_encode($getExists); ?>;</script>
 		<script src="cards.js"></script>
 		<?php
-		console_log($getExists ? "Set" : "Unset");
+		console_log($getExists ? "Get Set" : "Get Unset");
 		$db->close();
 		?>
 	</div>
