@@ -40,7 +40,7 @@ if (!$result = $db->query("SHOW TABLES LIKE 'Decks'")) {
 }
 
 // adds Decks table if doesn't exist
-
+echo $result->num_rows . '<br />';
 $decksExists = $result->num_rows > 0;
 $result = $db->query("SHOW COLUMNS FROM 'Decks'");
 echo "start";
