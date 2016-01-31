@@ -22,7 +22,7 @@
 		if (getExists) {
 			alert("Exists!");
 			// then get 
-		} else {
+		}/* else {
 			alert("ok");
 			// get and write names
 			$.post("ajaxReq.php", {req: "names"})
@@ -32,7 +32,7 @@
 					$(".container").append("<p>" + (x+1) + ": " + names[x] + "</p>");
 				}
 			});
-		}
+		}*/
 		</script>
 		<?php
 			echo $getExists ? "Set" : "Unset";
