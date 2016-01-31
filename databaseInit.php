@@ -59,15 +59,19 @@ if (!$result = $db->query("SELECT `NAME` from Decks")) {
 $numDecks = $result->num_rows;
 
 if ($t_1Rows == 0 && $t_1InDecks == 0) {
-	echo (" wow ");
+	echo ("1");
 	simpleQuery("INSERT INTO Decks (NAME) VALUES ('OpenCards Tutorial')", "n");
+	echo ("2");
 	simpleQuery("CREATE TABLE t_1 (FRONT TINYTEXT, BACK TINYTEXT)", 'There was an error creating the tutorial table');
-	
+	echo ("3");
 	simpleQuery("INSERT INTO t_1 VALUES ('Welcome to OpenCards. Click the card or the Flip button see the other side!', 'OpenCards is an open-source, lightweight flashcard app. Press the Next Button for the next card!')", "n");
+	echo ("4");
 	simpleQuery("INSERT INTO t_1 VALUES ('You can create your own decks of flashcards, and share them.', 'OpenCards is also very mobile-friendly, which is a huge plus for studying on the go!')", "n");
+	echo ("5");
 	simpleQuery("INSERT INTO t_1 VALUES ('Whats good my man', 'Not much, you?')", "n");
+	echo ("6");
 	simpleQuery("INSERT INTO t_1 VALUES ('Whats good my man', 'Not much, you?')", "n");
-	
+	echo ("7");
 }
 
 console_log("t_1 rows: " . $t_1Rows);
