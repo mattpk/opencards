@@ -39,13 +39,19 @@ if (!$result = $db->query("SHOW TABLES LIKE 'Decks'")) {
 	die('There was an error checking if Decks exists');
 }
 
-// ensure Decks table exists
+// adds Decks table if doesn't exist
 $tableExists = $result->num_rows > 0;
 if (!$tableExists) {
 	$sql = "CREATE TABLE Decks (ID int AUTO_INCREMENT, NAME varchar(64), PRIMARY KEY(ID))";
 	simpleQuery($sql, 'There was an error creating the Decks table');
 }
 
+// checks that tutorialExists
+if (!$result = $db->query("SHOW TABLES LIKE 't_1'")) {
+	die('There was an error checking if t_1 exists');
+}
+
+//adds tutorial if doesn't exist
 $t_1Rows = $result->num_rows;
 if ($t_1Rows == 0) {
 	simpleQuery("INSERT INTO Decks (ID, NAME) VALUES (1, 'OpenCards Tutorial')");
