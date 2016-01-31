@@ -23,9 +23,10 @@ echo "Got to here\n";
 if (!$result = $db->query("SHOW TABLES LIKE 'Decks'")) {
 	die('There was an error checking if Decks exists [' . $db->error . ']');
 }
-/*
-$tableExists = $result->num_rows > 0;
 
+$tableExists = $result->num_rows > 0;
+echo "yo {$tableExists}";
+/*
 if (!$tableExists) {
 	$sql = "CREATE TABLE Decks (ID int AUTO_INCREMENT, NAME varchar(64), PRIMARY KEY(ID));"
 
