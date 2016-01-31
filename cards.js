@@ -1,4 +1,5 @@
 if (getExists) {
+	// check if deck exists, put deck
 	$(".container").append("<div id='cardwrapper'><div id='card'></div></div>");
 	$("#card").append("<span id ='cardtext'></span>");
 	$('#cardtext').text("You can do it. Finish this by tonight!");

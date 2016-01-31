@@ -6,7 +6,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
 
-	<title>Opencards</title>
+	<title>OpenCards</title>
 </head>
 <body>
 	<div class ="header"><a href="index.php"><img style="display:block;    max-width: 100%;

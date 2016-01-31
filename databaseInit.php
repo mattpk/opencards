@@ -21,30 +21,41 @@ $name = substr($url["path"], 1);
 
 $db = new mysqli($server, $username, $password, $name);
 
+// queries the database with an unparameterized query, does nothing with the output, dies with an error message if fails.
+function simpleQuery($query, $errormsg) {
+	if (!$result = $db->query($query)) {
+		die($errormsg . ' [' . $db->error . ']');
+	}
+	$result->free();
+}
+
 // check that connection was successful
 if($db->connect_errno > 0) {
 	die('Unable to connect to database [' . $db->connect_error . ']');
 }
 
+// check that decks exists
 if (!$result = $db->query("SHOW TABLES LIKE 'Decks'")) {
-	die('There was an error checking if Decks exists [' . $db->error . ']');
+	die('There was an error checking if Decks exists');
 }
-
 
 // ensure Decks table exists
 $tableExists = $result->num_rows > 0;
 if (!$tableExists) {
 	$sql = "CREATE TABLE Decks (ID int AUTO_INCREMENT, NAME varchar(64), PRIMARY KEY(ID))";
-
-	if(!$result = $db->query($sql)) {
-		die('There was an error creating the Decks table [' . $db->error . ']');
-	}
+	simpleQuery($sql, 'There was an error creating the Decks table');
 }
 
-// add initial sample data
+$t_1Rows = $result->num_rows;
+if ($t_1Rows == 0) {
+	simpleQuery("INSERT INTO Decks (ID, NAME) VALUES (1, 'OpenCards Tutorial')");
+	simpleQuery("CREATE TABLE t_1 (FRONT TINYTEXT, BACK TINYTEXT)", 'There was an error creating the tutorial table');
+	simpleQuery("INSERT INTO t_1 VALUES ('Welcome to OpenCards. Click the card or the \'Flip\' button see the other side!', 'OpenCards is an open-source, lightweight flashcard app. Press the \'Next\' Button for the next card!')");
+	simpleQuery("INSERT INTO t_1 VALUES ('You can create your own decks of flashcards, and share them.', 'OpenCards is also very mobile-friendly, which is a huge plus for studying on the go!')");
+	simpleQuery("INSERT INTO t_1 VALUES ('What\'s good my man', 'Not much, you?')");
+	simpleQuery("INSERT INTO t_1 VALUES ('What\'s good my man', 'Not much, you?')");
+}
 
-
-
-
+console_log("t_1 rows: " . $t_1Rows);
 console_log("success init");
 ?>
