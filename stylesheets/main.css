@@ -12,6 +12,7 @@ body {
 #cardwrapper {
   width: 90%;
   padding-bottom: 35%;
+  margin: 0 auto;
 
   background-color: #fff; 
   background-image: 
@@ -21,7 +22,7 @@ body {
 }
 
 #card {
-  font-size: 16px;
+  font-size: 30px;
   padding: 16px;
   text-align: center;
 }
