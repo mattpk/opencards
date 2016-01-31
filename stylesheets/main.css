@@ -4,11 +4,17 @@ body {
 
 .container {
   max-width: 900px;
+  padding: 4px;
   margin: 0 auto;
   background-color: #ecf0f1;
 }
 
 h1 {
   margin: 0;
+  text-align: center;
+}
+
+.footer {
+  background-color: white;
   text-align: center;
 }

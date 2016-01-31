@@ -31,6 +31,9 @@ if (!$tableExists) {
 	}
 }
 
+// add initial sample data
+
+
 
 
 echo "success init";

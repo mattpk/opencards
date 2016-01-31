@@ -6,29 +6,37 @@
 	<link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
 	<title>Opencards</title>
 </head>
-
 <body>
+	<div class ="header"><h1>Opencards</h1></div>
 	<div class="container">
-		<div class = "header"><h1>Opencards</h1></div>
 		<?php
 		require 'databaseInit.php';
 		// $db
 		$getExists = isset($_GET["deck"]);
+		$get = $_GET["deck"];
 		echo '<br />';
 		echo "Deck get request: " . htmlspecialchars($_GET["deck"]);
 		?>
 		<script>
 		var getExists = <?php echo json_encode($getExists); ?>;
+		if (getExists) {
+			// then get 
+		} else {
+			// get and write names
+			$.post("ajaxReq.php", {req: "names"})
+			.done(function(data) {
+				var names = JSON_parse(data);
+				for (int x = 0; x < names.length; x++) {
+					$(".container").append("<p>" + names[x] + "</p>");
+				}
+			});
+		}
 		</script>
 		<?php
 			echo $getExists ? "Set" : "Unset"; 
 			$db->close();
 		?>
-		<script>
-		console.log("Hello");
-		console.log(getExists);
-		</script>
-		<h4> Made by Matthew Chung </h4>
+		<div class="footer">Developed by Matthew Chung  |  matthew.chung@uwaterloo.ca</div>
 	</div>
 </body>
 
