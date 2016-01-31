@@ -11,7 +11,7 @@
 		<div class = "header"><h1>OpenCards</h1></div>
 		<?php
 		echo 'before';
-		require 'databaseInit.php';
+		include 'databaseInit.php';
 		echo(htmlspecialchars($_GET["deck"]));
 		$db.close();
 		?>
