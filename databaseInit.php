@@ -45,7 +45,7 @@ if (!$decksExists) {
 	$sql = "CREATE TABLE Decks (ID int AUTO_INCREMENT, NAME varchar(64), PRIMARY KEY(ID))";
 	simpleQuery($sql, 'There was an error creating the Decks table');
 }
-
+/*
 // checks that tutorialExists
 if (!$result = $db->query("SHOW TABLES LIKE 't_1'")) {
 	die('There was an error checking if t_1 exists');
@@ -61,7 +61,7 @@ if ($t_1Rows == 0) {
 	simpleQuery("INSERT INTO t_1 VALUES ('What\'s good my man', 'Not much, you?')", "n");
 	simpleQuery("INSERT INTO t_1 VALUES ('What\'s good my man', 'Not much, you?')", "n");
 }
-
+*/
 console_log("t_1 rows: " . $t_1Rows);
 console_log("success init");
 ?>
