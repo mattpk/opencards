@@ -53,8 +53,12 @@ if (!$result = $db->query("SHOW TABLES LIKE 't_1'")) {
 
 //adds tutorial if doesn't exist
 $t_1Rows = $result->num_rows;
+if (!$result = $db->query("SELECT `NAME` from Decks")) {
+	die('There was an error checking number of decks.');
+}
+$numDecks = $result->num_rows;
 
-if ($t_1Rows == 0) {
+if ($t_1Rows == 0 && $t_1InDecks == 0) {
 	simpleQuery("INSERT INTO Decks (ID, NAME) VALUES (1, 'OpenCards Tutorial')", "n");
 	simpleQuery("CREATE TABLE t_1 (FRONT TINYTEXT, BACK TINYTEXT)", 'There was an error creating the tutorial table');
 	simpleQuery("INSERT INTO t_1 VALUES ('Welcome to OpenCards. Click the card or the Flip button see the other side!', 'OpenCards is an open-source, lightweight flashcard app. Press the Next Button for the next card!')", "n");
@@ -64,5 +68,6 @@ if ($t_1Rows == 0) {
 }
 
 console_log("t_1 rows: " . $t_1Rows);
+console_log("num decks: " . $numDecks);
 console_log("success init");
 ?>
