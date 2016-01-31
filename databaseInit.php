@@ -43,7 +43,9 @@ if (!$result = $db->query("SHOW TABLES LIKE 'Decks'")) {
 
 $decksExists = $result->num_rows > 0;
 $result = $db->query("SHOW COLUMNS FROM 'Decks'");
+echo "start";
 while($row = $result->fetch_assoc()){
+	echo "Ok";
     echo $row['FIELD'] . '<br />';
 }
 if (!$decksExists) {
