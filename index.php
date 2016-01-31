@@ -21,7 +21,7 @@
 		var getExists = <?php echo json_encode($getExists); ?>;
 		if (getExists) {
 			$(".container").append("<div id='cardwrapper'><div id='card'></div></div>");
-			$("#card").append("<div id ='cardtext'></div");
+			$("#card").append("<div id ='cardtext'></div>");
 			$('#cardtext').text("You can do it. Finish this by tonight!");
 		} else {
 			alert("ok");
