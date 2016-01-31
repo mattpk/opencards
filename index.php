@@ -12,7 +12,9 @@
 	<div class ="header"><a href="index.php"><img style="display:block; max-width: 100%; height: auto; margin-left:auto; margin-right: auto;" src="./img/logo.png"></img></a></div>
 	<div class="container">
 		<?php
+		echo "help";
 		require 'databaseInit.php';
+		echo "help2";
 		// $db
 		$getExists = isset($_GET["deck"]);
 		$get = $_GET["deck"];
