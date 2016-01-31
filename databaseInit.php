@@ -2,7 +2,7 @@
 // databaseInit.php connects to the DB, checks if the necessary base table exists, if not, creates it.
 // remember to $db.close() later
 
-echo "Db";
+echo "\nrequired databaseInit.php\n";
 
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
@@ -17,12 +17,13 @@ $db = new mysqli($server, $username, $password, $name);
 if($db->connect_errno > 0) {
 	die('Unable to connect to database [' . $db->connect_error . ']');
 }
-/*
+
+echo "Got to here\n";
 
 if (!$result = $db->query("SHOW TABLES LIKE 'Decks'")) {
 	die('There was an error checking if Decks exists [' . $db->error . ']');
 }
-
+/*
 $tableExists = $result->num_rows > 0;
 
 if (!$tableExists) {
