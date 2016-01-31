@@ -20,7 +20,7 @@
 		<script>
 		var getExists = <?php echo json_encode($getExists); ?>;
 		if (getExists) {
-			$(".container").append("<div id='wrapper'><div id='card'>This is text.</div></div>");
+			$(".container").append("<div id='cardwrapper'><div id='card'>This is text.</div></div>");
 		} else {
 			alert("ok");
 			// get and write names
