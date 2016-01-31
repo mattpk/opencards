@@ -3,7 +3,7 @@
 // remember to $db.close() later
 
 echo "Db";
-
+/*
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 $server = $url["host"];
@@ -34,6 +34,6 @@ if (!$tableExists) {
 } else {
 	echo "Worked!";
 }
-
+*/
 
 ?>
