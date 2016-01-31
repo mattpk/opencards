@@ -25,12 +25,12 @@ body {
   font-size: 18px;
   padding: 16px;
   text-align: center;
+  display:table;
 }
 
 #cardtext {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .footer {
