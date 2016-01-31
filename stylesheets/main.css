@@ -14,10 +14,10 @@ body {
   padding-bottom: 35%;
   margin: 0 auto;
 
-  background-color: #FFFACD; 
+  background-color: #FFFFE0; 
   background-image: 
-  linear-gradient(90deg, transparent 79px, #FA8072 79px, #FA8072 81px, transparent 81px),
-  linear-gradient(#87CEEB .1em, transparent .1em);
+  linear-gradient(90deg, 79px, #FA8072 79px, #FA8072 81px, 81px),
+  linear-gradient(#ADD8E6 .05em, transparent .05em);
   background-size: 100% 1.2em;
 }
 
