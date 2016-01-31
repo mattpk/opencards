@@ -14,7 +14,7 @@
 		require 'databaseInit.php';
 		
 		echo isset($_GET["DECK"]) ? "Set" : "Unset";
-		echo '<br />'
+		echo '<br />';
 		echo "Deck get request: " . htmlspecialchars($_GET["deck"]);
 		$db.close();
 		?>
