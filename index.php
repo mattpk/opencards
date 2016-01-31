@@ -8,8 +8,12 @@
 
 <body>
 	<div class="container">
-		<div class = "header"><h1>opencards</h1></div>
-		<?php echo("hello" . htmlspecialchars($_GET[""])); ?>
+		<div class = "header"><h1>OpenCards</h1></div>
+		<?php require 'databaseInit'; ?>
+		<?php
+		echo(htmlspecialchars($_GET["deck"]));
+		$db.close();
+		?>
 	</div>
 </body>
 
