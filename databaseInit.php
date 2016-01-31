@@ -53,7 +53,7 @@ if (!$result = $db->query("SHOW TABLES LIKE 't_1'")) {
 
 //adds tutorial if doesn't exist
 $t_1Rows = $result->num_rows;
-/*
+
 if ($t_1Rows == 0) {
 	simpleQuery("INSERT INTO Decks (ID, NAME) VALUES (1, 'OpenCards Tutorial')", "n");
 	simpleQuery("CREATE TABLE t_1 (FRONT TINYTEXT, BACK TINYTEXT)", 'There was an error creating the tutorial table');
@@ -62,7 +62,7 @@ if ($t_1Rows == 0) {
 	simpleQuery("INSERT INTO t_1 VALUES ('Whats good my man', 'Not much, you?')", "n");
 	simpleQuery("INSERT INTO t_1 VALUES ('Whats good my man', 'Not much, you?')", "n");
 }
-*/
+
 console_log("t_1 rows: " . $t_1Rows);
 console_log("success init");
 ?>
