@@ -40,8 +40,8 @@ if (!$result = $db->query("SHOW TABLES LIKE 'Decks'")) {
 }
 
 // adds Decks table if doesn't exist
-$getExists = $result->num_rows > 0;
-if (!$getExists) {
+$decksExists = $result->num_rows > 0;
+if (!$decksExists) {
 	$sql = "CREATE TABLE Decks (ID int AUTO_INCREMENT, NAME varchar(64), PRIMARY KEY(ID))";
 	simpleQuery($sql, 'There was an error creating the Decks table');
 }
