@@ -42,7 +42,10 @@ if (!$result = $db->query("SHOW TABLES LIKE 'Decks'")) {
 // adds Decks table if doesn't exist
 
 $decksExists = $result->num_rows > 0;
-echo $result->fetch_assoc()['TABLE_NAME'];
+$result = $db->query("SHOW COLUMNS FROM 'Decks'");
+while($row = $result->fetch_assoc()){
+    echo $row['FIELD'] . '<br />';
+}
 if (!$decksExists) {
 	$sql = "CREATE TABLE Decks (ID int AUTO_INCREMENT, NAME varchar(64), PRIMARY KEY(ID))";
 	simpleQuery($sql, 'There was an error creating the Decks table');
@@ -61,6 +64,7 @@ if (!$result = $db->query("SELECT `NAME` from Decks")) {
 $numDecks = $result->num_rows;
 
 if ($t_1Rows == 0 && $t_1InDecks == 0) {
+	/*
 	echo ("1");
 	simpleQuery("INSERT INTO Decks (NAME) VALUES ('OpenCards Tutorial')", "n");
 	echo ("2");
@@ -74,6 +78,7 @@ if ($t_1Rows == 0 && $t_1InDecks == 0) {
 	echo ("6");
 	simpleQuery("INSERT INTO t_1 VALUES ('Whats good my man', 'Not much, you?')", "n");
 	echo ("7");
+	*/
 }
 
 console_log("t_1 rows: " . $t_1Rows);
