@@ -40,10 +40,10 @@ if (!$result = $db->query("SHOW TABLES LIKE 'Decks'")) {
 }
 
 // adds Decks table if doesn't exist
-echo $result->num_rows . '<br />';
+echo serialize($result) . '<br />';
 $decksExists = $result->num_rows > 0;
 $result = $db->query("SHOW COLUMNS FROM 'Decks'");
-echo "start";
+echo "deck columns: " . serialize($result) . '<br />';
 while($row = $result->fetch_assoc()){
 	echo "Ok";
     echo $row['FIELD'] . '<br />';
