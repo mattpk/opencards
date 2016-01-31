@@ -3,7 +3,7 @@
 // remember to $db.close() later
 
 echo "Db";
-/*
+
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 $server = $url["host"];
@@ -17,7 +17,7 @@ $db = new mysqli($server, $username, $password, $name);
 if($db->connect_errno > 0) {
 	die('Unable to connect to database [' . $db->connect_error . ']');
 }
-
+/*
 
 if (!$result = $db->query("SHOW TABLES LIKE 'Decks'")) {
 	die('There was an error checking if Decks exists [' . $db->error . ']');
