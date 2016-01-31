@@ -13,8 +13,7 @@
 		<?php
 		require 'databaseInit.php';
 		// $db
-		$getExists = $_GET["deck"];
-		echo isset($getExists) ? "Set" : "Unset";
+		$getExists = isset($_GET["deck"]]);
 		echo '<br />';
 		echo "Deck get request: " . htmlspecialchars($_GET["deck"]);
 		?>
@@ -22,7 +21,8 @@
 		var getExists = <?php echo json_encode($getExists); ?>;
 		</script>
 		<?php
-		$db.close();
+			echo $getExists ? "Set" : "Unset"; 
+			$db->close();
 		?>
 		<script>
 		console.log("Hello");
