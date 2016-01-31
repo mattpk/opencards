@@ -12,7 +12,7 @@
 		<?php
 		echo 'before';
 		require 'databaseInit.php';
-		echo 'middle';
+		echo 'after';
 		echo(htmlspecialchars($_GET["deck"]));
 		$db.close();
 		?>

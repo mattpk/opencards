@@ -25,10 +25,10 @@ if (!$result = $db->query("SHOW TABLES LIKE 'Decks'")) {
 }
 
 $tableExists = $result->num_rows > 0;
-echo "yo {$tableExists}";
-/*
+echo $tableExists? "exists" : "doesn't exist";
+
 if (!$tableExists) {
-	$sql = "CREATE TABLE Decks (ID int AUTO_INCREMENT, NAME varchar(64), PRIMARY KEY(ID));"
+	$sql = "CREATE TABLE Decks (ID int AUTO_INCREMENT, NAME varchar(64), PRIMARY KEY(ID))";
 
 	if(!$result = $db->query($sql)) {
 		die('There was an error creating the Decks table [' . $db->error . ']');
@@ -36,6 +36,6 @@ if (!$tableExists) {
 } else {
 	echo "Worked!";
 }
-*/
+
 
 ?>
