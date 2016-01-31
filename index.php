@@ -9,11 +9,13 @@
 <body>
 	<div class="container">
 		<div class = "header"><h1>OpenCards</h1></div>
-		<?php require 'databaseInit'; ?>
 		<?php
+		echo 'before';
+		require 'databaseInit';
 		echo(htmlspecialchars($_GET["deck"]));
 		$db.close();
 		?>
+		Okay
 	</div>
 </body>
 
