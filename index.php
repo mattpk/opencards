@@ -4,11 +4,22 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
+
 	<title>Opencards</title>
 </head>
 <body>
-	<div class ="header"><a href="index.php"><img style="display:block; margin-left:auto; margin-right: auto;" src="./img/logo.png"></img></a></div>
+	<div class ="header"><a href="index.php"><img style="display:block;    max-width: 100%;
+    height: auto; margin-left:auto; margin-right: auto;" src="./img/logo.png"></img></a></div>
 	<div class="container">
+
+		<div id = "cardwrapper">
+			<div id="card">
+				<span id = "cardtext">
+					Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia non
+				</span>
+			</div>
+		</div>
+
 		<?php
 		require 'databaseInit.php';
 		// $db
@@ -17,23 +28,8 @@
 		
 		console_log("Deck get request: " . htmlspecialchars($_GET["deck"]));
 		?>
-		<script>
-		var getExists = <?php echo json_encode($getExists); ?>;
-		if (getExists) {
-			$(".container").append("<div id='cardwrapper'><div id='card'></div></div>");
-			$("#card").append("<div id ='cardtext'></div>");
-			$('#cardtext').text("You can do it. Finish this by tonight!");
-		} else {
-			alert("ok");
-			// get and write names
-			$.post("ajaxReq.php", {req: "names"}).done(function(data) {
-				var names = JSON.parse(data);
-				for (var x = 0; x < names.length; x++) {
-					$(".container").append("<p>" + (x+1) + ": " + names[x] + "</p>");
-				}
-			});
-		}
-		</script>
+		<script>var getExists = <?php echo json_encode($getExists); ?>;</script>
+		<script src="cards.js"></script>
 		<?php
 		console_log($getExists ? "Set" : "Unset");
 		$db->close();
