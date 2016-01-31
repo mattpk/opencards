@@ -24,7 +24,10 @@
 		<?php
 		$db.close();
 		?>
-		<script> console.log(getExists); </script>
+		<script>
+		console.log("Hello");
+		console.log(getExists);
+		</script>
 		<h4> Made by Matthew Chung </h4>
 	</div>
 </body>

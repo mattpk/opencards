@@ -33,5 +33,5 @@ if (!$tableExists) {
 
 
 
-
+echo "success init";
 ?>
