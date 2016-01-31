@@ -13,7 +13,7 @@
 		<?php
 		require 'databaseInit.php';
 		// $db
-		$getExists = isset($_GET["deck"]]);
+		$getExists = isset($_GET["deck"]);
 		echo '<br />';
 		echo "Deck get request: " . htmlspecialchars($_GET["deck"]);
 		?>
