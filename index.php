@@ -22,21 +22,21 @@
 		if (getExists) {
 			alert("Exists!");
 			// then get 
-		}/* else {
+		} else {
 			alert("ok");
 			// get and write names
 			$.post("ajaxReq.php", {req: "names"})
 			.done(function(data) {
-				var names = JSON_parse(data);
+				var names = JSON.parse(data);
 				for (int x = 0; x < names.length; x++) {
 					$(".container").append("<p>" + (x+1) + ": " + names[x] + "</p>");
 				}
 			});
-		}*/
+		}
 		</script>
 		<?php
-			echo $getExists ? "Set" : "Unset";
-			$db->close();
+		echo $getExists ? "Set" : "Unset";
+		$db->close();
 		?>
 	</div>
 	<div class="footer">Developed by Matthew Chung  |  matthew.chung@uwaterloo.ca</div>
