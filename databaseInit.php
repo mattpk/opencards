@@ -54,12 +54,12 @@ if (!$result = $db->query("SHOW TABLES LIKE 't_1'")) {
 //adds tutorial if doesn't exist
 $t_1Rows = $result->num_rows;
 if ($t_1Rows == 0) {
-	simpleQuery("INSERT INTO Decks (ID, NAME) VALUES (1, 'OpenCards Tutorial')");
+	simpleQuery("INSERT INTO Decks (ID, NAME) VALUES (1, 'OpenCards Tutorial')", "n");
 	simpleQuery("CREATE TABLE t_1 (FRONT TINYTEXT, BACK TINYTEXT)", 'There was an error creating the tutorial table');
-	simpleQuery("INSERT INTO t_1 VALUES ('Welcome to OpenCards. Click the card or the \'Flip\' button see the other side!', 'OpenCards is an open-source, lightweight flashcard app. Press the \'Next\' Button for the next card!')");
-	simpleQuery("INSERT INTO t_1 VALUES ('You can create your own decks of flashcards, and share them.', 'OpenCards is also very mobile-friendly, which is a huge plus for studying on the go!')");
-	simpleQuery("INSERT INTO t_1 VALUES ('What\'s good my man', 'Not much, you?')");
-	simpleQuery("INSERT INTO t_1 VALUES ('What\'s good my man', 'Not much, you?')");
+	simpleQuery("INSERT INTO t_1 VALUES ('Welcome to OpenCards. Click the card or the \'Flip\' button see the other side!', 'OpenCards is an open-source, lightweight flashcard app. Press the \'Next\' Button for the next card!')", "n");
+	simpleQuery("INSERT INTO t_1 VALUES ('You can create your own decks of flashcards, and share them.', 'OpenCards is also very mobile-friendly, which is a huge plus for studying on the go!')", "n");
+	simpleQuery("INSERT INTO t_1 VALUES ('What\'s good my man', 'Not much, you?')", "n");
+	simpleQuery("INSERT INTO t_1 VALUES ('What\'s good my man', 'Not much, you?')", "n");
 }
 
 console_log("t_1 rows: " . $t_1Rows);
