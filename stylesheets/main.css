@@ -13,7 +13,6 @@ body {
   width: 90%;
   /* whatever width you want */
   margin: 0 auto;
-  display: inline-block;
   position: relative;
 }
 #cardwrapper:after {
@@ -24,8 +23,11 @@ body {
 }
 
 #card {
+  font-size: 16px;
   padding: 4px;
   text-align: center;
+  width: 100%;
+  height: 100%;
 
   background-color: #fff; 
   background-image: 
