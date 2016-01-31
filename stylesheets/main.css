@@ -3,17 +3,27 @@ body {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 800px;
   padding: 4px;
   margin: 0 auto;
   background-color: #ecf0f1;
 }
 
-#card {
-  height: 450px;
-  max-width: 90%;
+#cardwrapper {
+  width: 90%;
+  /* whatever width you want */
   margin: 0 auto;
+  display: inline-block;
   position: relative;
+}
+#cardwrapper:after {
+  padding-top: 56.25%;
+  /* 16:9 ratio */
+  display: block;
+  content: '';
+}
+
+#card {
   padding: 4px;
   text-align: center;
 
