@@ -1,6 +1,9 @@
 <?php
 // databaseInit.php connects to the DB, checks if the necessary base table exists, if not, creates it.
 // remember to $db.close() later
+
+echo "Db";
+
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 $server = $url["host"];
@@ -16,7 +19,10 @@ if($db->connect_errno > 0) {
 }
 
 
-$result = $db->query("SHOW TABLES LIKE 'Decks'");
+if (!$result = $db->query("SHOW TABLES LIKE 'Decks'")) {
+	die('There was an error checking if Decks exists [' . $db->error . ']');
+}
+
 $tableExists = $result->num_rows > 0;
 
 if (!$tableExists) {
