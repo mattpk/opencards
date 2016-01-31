@@ -7,7 +7,7 @@
 	<title>Opencards</title>
 </head>
 <body>
-	<div class ="header"><a style="text-align:center;" href="index.php"><img src="./img/logo.png"></img></a></div>
+	<div class ="header"><a href="index.php"><img style="display:block; margin-left:auto; margin-right: auto;" src="./img/logo.png"></img></a></div>
 	<div class="container">
 		<?php
 		require 'databaseInit.php';
