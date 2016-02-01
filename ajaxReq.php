@@ -1,8 +1,4 @@
 <?php
-include 'log.php';
-
-console_log("we're golden");
-
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 $server = $url["host"];
@@ -29,11 +25,9 @@ if ($req == "names") {
 	}	
 	echo json_encode($reply);
 } elseif ($req == "deck") {
-	console_log("ok");
+
 	$id = mysqli_real_escape_string(htmlspecialchars($_POST['id']));
 	$tableName = "t_" . $id;
-
-	console_log("tablename: " . $tablename);
 
 	$result = $db->query("SELECT `NAME` FROM `decks` WHERE ID = " . $id);
 	$row = $result->fetch_assoc();
@@ -59,7 +53,6 @@ if ($req == "names") {
 	}
 	echo json_encode($reply);
 } else {
-	console_log("uh oh! why are we at the else of ajaxreq");
-	echo json_encode(array("Math" , "Science", "Test"));
+	echo json_encode(array("Uhoh" , "Why", "We here?"));
 }
 ?>
