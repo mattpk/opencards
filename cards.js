@@ -1,44 +1,35 @@
 // global vars
 var cards, flipped, index;
 
-function notNull() {
-	return (cards !== null && cards !== undefined && flipped !== null && flipped !== undefined && index !== null && index !== undefined);
-}
-
 // an int between min and max, exclusive of max.
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
 function onNext() {
-	if (!notNull()) return;
 	console.log("next");
 	index = Math.max(index+1, cards.length-1);
 	updateCard();
 }
 
 function onBack() {
-	if (!notNull()) return;
 	console.log("back");
 	index = Math.min(0, index-1);
 	updateCard();
 }
 
 function onFlip() {
-	if (!notNull()) return;
 	console.log("flip");
 	flipped[index] = !flipped[index];
 	updateCard();
 }
 
 function onCard() {
-	if (!notNull()) return;
 	console.log("card");
 	onFlip();
 }
 
 function onShuffle() {
-	if (!notNull()) return;
 	console.log("shuffle");
 	for (var i = 0; i < flipped.length; i++) {
 		flipped[i] = false;
@@ -52,12 +43,10 @@ function onShuffle() {
 }
 
 function onEdit() {
-	if (!notNull()) return;
 	console.log("edit");
 }
 
 function updateCard() {
-	if (!notNull()) return;
 	$("#cardtext").text(cards[index][flipped[index]]);
 	$("#page").text(index + "/" + cards.length);
 }
@@ -110,12 +99,12 @@ if (getExists) {
 		// initialize cards
 
 		// put listeners for all buttons.
-		$("#cardwrapper").click(onCard());
-		$("#flip").click(onFlip());
-		$("#back").click(onBack());
-		$("#next").click(onNext());
-		$("#edit").click(onEdit());
-		$("#shuffle").click(onShuffle());
+		$("#cardwrapper").click(onCard;
+		$("#flip").click(onFlip;
+		$("#back").click(onBack);
+		$("#next").click(onNext);
+		$("#edit").click(onEdit);
+		$("#shuffle").click(onShuffle);
 
 
 	});
