@@ -16,18 +16,17 @@ if($db->connect_errno > 0) {
 
 $req = htmlspecialchars($_POST['req']);
 
-$reply = array(array(1,"First"));
 
 if ($req = "names") {
 	if (!$result = $db->query("SELECT * FROM `decks`")) {
 		die('Unable to load deck list. [' . $db->connect_error . ']');
 	}
-	/*
+	
 	while ($row = $result->fetch_assoc()) {
 		$reply[] = array($row['ID'], $row['NAME']);
 	}
-	*/
-	echo json_encode(array(array(1,json_encode($result))));
+	
+	echo json_encode($reply);
 } else {
 	echo json_encode(array("Math" , "Science", "Test"));
 }
