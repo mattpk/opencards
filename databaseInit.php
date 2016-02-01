@@ -35,12 +35,13 @@ if($db->connect_errno > 0) {
 }
 
 // check that decks exists
-if (!$result = $db->query("SHOW TABLES LIKE 'Decks'")) {
+if (!$result = $db->query("SHOW TABLES LIKE Decks")) {
 	die('There was an error checking if Decks exists');
 }
 
 // adds Decks table if doesn't exist
 echo json_encode($result) . '<br />';
+echo "num rows: " . $result->num_rows;
 $decksExists = $result->num_rows > 0;
 $result = $db->query("SHOW COLUMNS FROM 'Decks'");
 echo "deck columns: " . json_encode($result) . '<br />';
