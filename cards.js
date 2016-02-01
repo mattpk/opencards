@@ -57,7 +57,7 @@ if (getExists) {
 	$(".container").append("<span id = 'cardtitle'></span>");
 	$(".container").append("<div id='cardwrapper'><div id='card'></div></div>");
 	$("#card").append("<span id='cardtext'></span>");
-	$("#card").append("<div id='page'>1/4</div>");
+	$("#card").append("<div id='page'></div>");
 
 	$(".container").append("<div class='buttonwrapper'></div>");
 	$(".buttonwrapper").append("<div class='btn' id='prev'>back</div>");
@@ -94,17 +94,19 @@ if (getExists) {
 			flipped.push(false);
 		}
 		console.log(JSON.stringify(cards));
-		$("#cardtext").text(cards[0][0]);
-		
+
+		$(documement).ready(function() {
+			updateCard();
+		});
 		// initialize cards
 
 		// put listeners for all buttons.
-		$("#cardwrapper").click(onCard);
-		$("#flip").click(onFlip);
-		$("#back").click(onBack);
-		$("#next").click(onNext);
-		$("#edit").click(onEdit);
-		$("#shuffle").click(onShuffle);
+		$("#cardwrapper").mouseup(onCard);
+		$("#flip").mouseup(onFlip);
+		$("#back").mouseup(onBack);
+		$("#next").mouseup(onNext);
+		$("#edit").mouseup(onEdit);
+		$("#shuffle").mouseup(onShuffle);
 
 
 	});
