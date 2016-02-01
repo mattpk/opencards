@@ -99,8 +99,8 @@ if (getExists) {
 		// initialize cards
 
 		// put listeners for all buttons.
-		$("#cardwrapper").click(onCard;
-		$("#flip").click(onFlip;
+		$("#cardwrapper").click(onCard);
+		$("#flip").click(onFlip);
 		$("#back").click(onBack);
 		$("#next").click(onNext);
 		$("#edit").click(onEdit);
