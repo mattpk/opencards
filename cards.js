@@ -8,13 +8,13 @@ function getRandomInt(min, max) {
 
 function onNext() {
 	console.log("next");
-	index = Math.max(index+1, cards.length-1);
+	index = Math.min(index+1, cards.length-1);
 	updateCard();
 }
 
 function onBack() {
 	console.log("back");
-	index = Math.min(0, index-1);
+	index = Math.max(0, index-1);
 	updateCard();
 }
 
