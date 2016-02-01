@@ -62,6 +62,7 @@ function onEdit() {
 
 	// change edit button to save
 	$('#edit').replaceWith("<div class='btn' id ='save'>save</div>");
+	$("#save").mouseup(onSave);
 }
 
 function onSave() {
@@ -71,12 +72,17 @@ function onSave() {
 		cards[index][flipped[index]? 1 : 0] = newtext;
 		// do ajax req for saving
 	}
+
+
 	updateCard();
 }
 
 function updateCard() {
 	// make sure it's save
 	$('#save').replaceWith("<div class='btn' id ='edit'>edit</div>");
+	$("#edit").mouseup(onEdit); // readd listener
+
+
 	$('#cardtext').replaceWith("<span id='cardtext'></span>");
 
 	// flip card if needed
@@ -161,8 +167,6 @@ if (getExists) {
 		$("#edit").mouseup(onEdit);
 		$("#shuffle").mouseup(onShuffle);
 		$("#new").mouseup(onNew);
-		$("#save").mouseup(onSave);
-
 
 	});
 
