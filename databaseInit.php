@@ -39,7 +39,5 @@ if (!$decksExists) {
 	}
 }
 
-
-console_log("num decks: " . $numDecks);
 console_log("success init");
 ?>
