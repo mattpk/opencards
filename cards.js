@@ -74,7 +74,7 @@ function onEdit() {
 }
 
 function onSave() {
-	var newtext = $('#cardtext').val();
+	var newtext = $('#cardtext').text();
 	if (newtext && oldtext !== newtext) {
 		// save locally
 		cards[index][flipped[index]? 1 : 0] = newtext;
