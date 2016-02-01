@@ -14,7 +14,9 @@ if (getExists) {
 		if (result === false) {
 			title = "Oops, deck not found!";
 		} else {
-			title = result[0].replace(/,+$/, ""); // removes trailing commas (weird glitch)
+			title = result[0]+""; 
+			console.log(typeof title);
+			title = title.replace(/,+$/, "");// removes trailing commas (weird glitch)
 		}
 		console.log("title: " + title);
 		$("#cardtitle").text(title);
