@@ -1,5 +1,5 @@
 a {
-  color: black;
+  color: #cb2f2f;
   text-decoration: none;
 }
 
@@ -59,8 +59,8 @@ body {
   padding: 2%;
   text-align: center;
   display: flex;
-justify-content: center; /* align horizontal */
-align-items: center; /* align vertical */
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
 }
 
 #cardtext {
@@ -72,4 +72,8 @@ align-items: center; /* align vertical */
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
+}
+
+li:before {
+  content: "»";
 }
