@@ -111,6 +111,18 @@ if (getExists) {
 
 		$(document).ready(function() {
 			updateCard();
+
+			$(document).keydown(function(event){ 
+			    var key = event.which;
+			    if (key == 37) {
+			    	onBack();
+			    } else if (key == 39) {
+			    	onNext();
+			    } else if (key == 38 || key == 40 || key == 32) {
+			    	onFlip();
+			    }
+			});
+
 		});
 		// initialize cards
 
