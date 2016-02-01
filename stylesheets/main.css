@@ -29,19 +29,24 @@ body {
   linear-gradient(#abced4 .1em, transparent .1em);
   background-size: 100% 1.2em;
   border-radius: 0.6em;
+
+  -webkit-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.43);
+  -moz-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.43);
+  box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.43);
+
 }
 
-@media all and (min-width: 300px)  {  #card  { font-size:0.9em;  } }
-@media all and (min-width: 350px)  {  #card  { font-size:1.0em;  } }
-@media all and (min-width: 400px)  {  #card  { font-size:1.1em;  } }
-@media all and (min-width: 450px)  {  #card  { font-size:1.3em;  } }
-@media all and (min-width: 500px)  {  #card  { font-size:1.4em;  } }
-@media all and (min-width: 550px)  {  #card  { font-size:1.52em;  } }
-@media all and (min-width: 600px)  {  #card  { font-size:1.65em;  } }
-@media all and (min-width: 650px)  {  #card  { font-size:1.75em;  } }
-@media all and (min-width: 700px)  {  #card  { font-size:1.95em;  } }
-@media all and (min-width: 750px)  {  #card  { font-size:2.1em;  } }
-@media all and (min-width: 800px)  {  #card  { font-size:2.4em;  } }
+@media all and (min-width: 300px)  {  .container  { font-size:0.9em;  } }
+@media all and (min-width: 350px)  {  .container  { font-size:1.0em;  } }
+@media all and (min-width: 400px)  {  .container  { font-size:1.1em;  } }
+@media all and (min-width: 450px)  {  .container  { font-size:1.3em;  } }
+@media all and (min-width: 500px)  {  .container  { font-size:1.4em;  } }
+@media all and (min-width: 550px)  {  .container  { font-size:1.52em;  } }
+@media all and (min-width: 600px)  {  .container  { font-size:1.65em;  } }
+@media all and (min-width: 650px)  {  .container  { font-size:1.75em;  } }
+@media all and (min-width: 700px)  {  .container  { font-size:1.95em;  } }
+@media all and (min-width: 750px)  {  .container  { font-size:2.1em;  } }
+@media all and (min-width: 800px)  {  .container  { font-size:2.4em;  } }
 
 #card {
   position: absolute;

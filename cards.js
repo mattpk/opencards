@@ -8,7 +8,7 @@ if (getExists) {
 	$.post("ajaxReq.php", {req: "names"}).done(function(data) {
 		var names = JSON.parse(data);
 		for (var x = 0; x < names.length; x++) {
-			$(".container").append("<a href = './?deck=" + names[x][0] + "'>" + names[x][1] + "</a>");
+			$(".container").append("<a href = './?deck=" + names[x][0] + "'>" + names[x][1] + "</a></br />");
 		}
 	});
 }
