@@ -117,7 +117,7 @@ li:before {
 }
 
 
-#buttonwrapper2 ~ .btn {
+#buttonwrapper2 .btn {
   width:40%;
 }
 
