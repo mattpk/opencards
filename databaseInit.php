@@ -26,7 +26,6 @@ function simpleQuery($query, $errormsg) {
 	if (!$result = $db->query($query)) {
 		die($errormsg . ' [' . $db->error . ']');
 	}
-	$result->free();
 }
 
 // check that connection was successful
