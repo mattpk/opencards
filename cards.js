@@ -12,7 +12,7 @@ if (getExists) {
 		var result = JSON.parse(data);
 		var title;
 		console.log("Omg");
-		if (!result) {
+		if (result === false) {
 			title = "Oops, deck not found!";
 		} else {
 			title = result[0];

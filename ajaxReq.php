@@ -29,7 +29,9 @@ if ($req == "names") {
 	$id = $db->real_escape_string($_POST['id']);
 	$tableName = "t_" . $id;
 
-	$result = $db->query("SELECT `NAME` FROM `decks` WHERE `ID` = " . $tableName);
+	if (!$result = $db->query("SELECT `NAME` FROM `decks` WHERE `ID` = $id")) {
+		die('Unable to find deck in db. [' . $db->connect_error . ']');
+	}
 	$row = $result->fetch_assoc();
 	$reply[] = array($row['NAME'],array());
 
