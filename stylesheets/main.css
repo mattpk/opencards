@@ -20,7 +20,7 @@ body {
   box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.23);
 }
 
-#cardwrapper {
+.cardwrapper {
 
   width: 100%;
   padding-bottom: 40%; /* 16:9 */
@@ -42,7 +42,7 @@ body {
 
 }
 
-#backwrapper {
+.backwrapper {
 
   width: 100%;
   padding-bottom: 40%; /* 16:9 */

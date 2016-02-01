@@ -20,6 +20,9 @@ function onBack() {
 
 function onFlip() {
 	console.log("flip");
+
+	$(".cardwrapper .backwrapper").toggleClass(".cardwrapper .backwrapper");
+
 	flipped[index] = !flipped[index];
 	updateCard();
 }
@@ -56,7 +59,7 @@ if (getExists) {
 	// check if deck exists, put deck
 	// set up cards and buttons
 	$(".container").append("<span id = 'cardtitle'></span>");
-	$(".container").append("<div id='cardwrapper'><div id='card'></div></div>");
+	$(".container").append("<div class='cardwrapper'><div id='card'></div></div>");
 	$("#card").append("<span id='cardtext'></span>");
 	$("#card").append("<div id='page'></div>");
 
@@ -102,7 +105,7 @@ if (getExists) {
 		// initialize cards
 
 		// put listeners for all buttons.
-		$("#cardwrapper").mouseup(onCard);
+		$(".cardwrapper .backwrapper").mouseup(onCard);
 		$("#flip").mouseup(onFlip);
 		$("#back").mouseup(onBack);
 		$("#next").mouseup(onNext);
