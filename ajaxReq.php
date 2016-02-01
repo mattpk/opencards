@@ -51,7 +51,7 @@ if ($req == "names") {
 		/* close statement */
 		$stmt->close();
 	}
-	$reply = array($name,$table);
+	$reply = array($tableName,$table);
 	echo json_encode($reply);
 } else {
 	echo json_encode(array("Uhoh" , "Why", "We here?"));
