@@ -4,7 +4,7 @@ if (getExists) {
 	$(".container").append("<span id = 'cardtitle'></span>");
 	$(".container").append("<div id='cardwrapper'><div id='card'></div></div>");
 	$("#card").append("<span id='cardtext'></span>");
-	$("#card").append("<div id='page'>1</div>");
+	$("#card").append("<div id='page'>1/4</div>");
 
 	$(".container").append("<div class='buttonwrapper'></div>");
 	$(".buttonwrapper").append("<div class='btn' id='prev'>back</div>");
@@ -31,7 +31,8 @@ if (getExists) {
 		}
 		console.log("title: " + title);
 		$("#cardtitle").text(title);
-
+		console.log(result[1]);
+		console.log(JSON.stringify(result[1]));
 		$("#cardtext").text(JSON.stringify(result[1]));
 	});
 
