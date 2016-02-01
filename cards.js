@@ -55,6 +55,9 @@ function onNew() {
 function onEdit() {
 	console.log("edit");
 
+	// set focus
+	$('#cardtext').focus();
+
 	editing = true;
 	oldtext = $('#cardtext').text();
 	// make text editable
@@ -67,6 +70,7 @@ function onEdit() {
 	$('#edit').replaceWith("<div class='btn' id ='save'>save</div>");
 	$("#save").mouseup(onSave);
 
+	// shift etner new line, enter key submits
 	$("#cardtext").keydown(function(e){
 	    // Enter was pressed without shift key
 	    if (e.keyCode == 13 && !e.shiftKey)
