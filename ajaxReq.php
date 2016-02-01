@@ -47,9 +47,10 @@ if ($req == "names") {
 
 	    /* close statement */
 	    $stmt->close();
-	    return $reply;
+	} else {
+		$reply = false;
 	}
-	return false;
+	echo json_encode($reply);
 } else {
 	echo json_encode(array("Math" , "Science", "Test"));
 }
