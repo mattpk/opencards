@@ -116,6 +116,11 @@ li:before {
   text-align: center;
 }
 
+
+#buttonwrapper2 ~ .btn {
+  width:40%;
+}
+
 .btn:hover {
   background: #ecf0f1;
   text-decoration: none;

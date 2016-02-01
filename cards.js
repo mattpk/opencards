@@ -29,6 +29,8 @@ if (getExists) {
 		}
 		console.log("title: " + title);
 		$("#cardtitle").text(title);
+
+		$("#cardtext").text(JSON.encode)
 	});
 
 	//$('#cardtext').text("You can do it. Finish this by tonight!");
