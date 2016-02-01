@@ -47,8 +47,8 @@ function onEdit() {
 }
 
 function updateCard() {
-	$("#cardtext").text(cards[index][flipped[index]]);
-	$("#page").text(index + "/" + cards.length);
+	$("#cardtext").text(cards[index][flipped[index]]? 1 : 0);
+	$("#page").text((index+1) + "/" + cards.length);
 }
 
 if (getExists) {
