@@ -60,12 +60,17 @@ function onEdit() {
 	// make text editable
 	$('#cardtext').attr('contenteditable','true');
 
+	// add editable class
+	$('#cardtext').addClass('cardedit');
+
 	// change edit button to save
 	$('#edit').replaceWith("<div class='btn' id ='save'>save</div>");
 	$("#save").mouseup(onSave);
 
+
 	// make card unclickable
 	$('.cardwrapper, .backwrapper').off('mouseup');
+
 }
 
 function onSave() {
@@ -144,13 +149,13 @@ if (getExists) {
 		}
 		console.log("title: " + title);
 		$("#cardtitle").text(title);
-
+		// initializing flipped array
 		cards = result[1];
 		for (var i = 0; i < cards.length; i++) {
 			flipped.push(false);
 		}
-		console.log(JSON.stringify(cards));
-
+		
+		// on ready, update first card and add keyboard listeners
 		$(document).ready(function() {
 			updateCard();
 
