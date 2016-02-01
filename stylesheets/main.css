@@ -143,14 +143,20 @@ li:before {
   user-select: none;
 }
 
-#page {
+.page {
   position: absolute;
   bottom: 0px;
   right: 0.5%;
 }
 
+.pageback {
+ position: absolute;
+  bottom: 0px;
+  left: 0.5%; 
+}
+
 #buttonwrapper2 .btn {
-  width:40%;
+  width:25%;
 }
 
 .btn:hover {

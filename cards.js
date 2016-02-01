@@ -22,6 +22,7 @@ function onFlip() {
 	console.log("flip");
 
 	$(".cardwrapper, .backwrapper").toggleClass("cardwrapper backwrapper");
+	$(".page, .pageback").toggleClass("page pageback");
 
 	flipped[index] = !flipped[index];
 	updateCard();
@@ -61,15 +62,17 @@ if (getExists) {
 	$(".container").append("<span id = 'cardtitle'></span>");
 	$(".container").append("<div class='cardwrapper'><div id='card'></div></div>");
 	$("#card").append("<span id='cardtext'></span>");
-	$("#card").append("<div id='page'></div>");
+	$("#card").append("<div class='page'></div>");
 
 	$(".container").append("<div class='buttonwrapper'></div>");
 	$(".buttonwrapper").append("<div class='btn' id='back'>back</div>");
 	$(".buttonwrapper").append("<div class='btn' id='flip'>flip</div>");
 	$(".buttonwrapper").append("<div class='btn' id='next'>next</div>");
 	$(".container").append("<div class='buttonwrapper' id='buttonwrapper2'></div>");
-	$("#buttonwrapper2").append("<div class='btn' id='edit'>edit this card</div>");
-	$("#buttonwrapper2").append("<div class='btn' id='shuffle'>shuffle order</div>");
+	$("#buttonwrapper2").append("<div class='btn' id='edit'>edit</div>");
+	$("#buttonwrapper2").append("<div class='btn' id='shuffle'>new</div>");
+	$("#buttonwrapper2").append("<div class='btn' id='shuffle'>shuffle</div>");
+
 
 
 	console.log("Getexists, now post requesting");
