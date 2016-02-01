@@ -92,12 +92,13 @@ li:before {
 #buttonwrapper{
   margin:; 0 auto;
   min-width: 300px;
+  text-align:center;
 }
 
 .btn {
   margin-top: 4px;
   display:inline-block;
-  width:33%;
+  width:30%;
   background: #cb2f2f;
   background-image: -webkit-linear-gradient(top, #cb2f2f, #B52A2A);
   background-image: -moz-linear-gradient(top, #cb2f2f, #B52A2A);
