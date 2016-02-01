@@ -4,25 +4,30 @@ function getRandomInt(min, max) {
 }
 
 function onNext() {
+	console.log("next");
 	index = Math.max(index+1, cards.length-1);
 	updateCard();
 }
 
 function onBack() {
+	console.log("back");
 	index = Math.min(0, index-1);
 	updateCard();
 }
 
 function onFlip() {
+	console.log("flip");
 	flipped[index] = !flipped[index];
 	updateCard();
 }
 
 function onCard() {
+	console.log("card");
 	onFlip();
 }
 
 function onShuffle() {
+	console.log("shuffle");
 	for (var i = 0; i < flipped.length; i++) {
 		flipped[i] = false;
 	}
@@ -35,7 +40,7 @@ function onShuffle() {
 }
 
 function onEdit() {
-
+	console.log("edit");
 }
 
 function updateCard() {
