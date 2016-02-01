@@ -90,25 +90,27 @@ li:before {
 }
 
 #buttonwrapper{
-  margin:; 0 auto;
+  margin: 0 auto;
   min-width: 300px;
   text-align:center;
 }
 
 .btn {
   margin-top: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
   display:inline-block;
-  width:30%;
+  width:25%;
   background: #cb2f2f;
-  background-image: -webkit-linear-gradient(top, #cb2f2f, #B52A2A);
-  background-image: -moz-linear-gradient(top, #cb2f2f, #B52A2A);
-  background-image: -ms-linear-gradient(top, #cb2f2f, #B52A2A);
-  background-image: -o-linear-gradient(top, #cb2f2f, #B52A2A);
-  background-image: linear-gradient(to bottom, #cb2f2f, #B52A2A);
+  background-image: -webkit-linear-gradient(top, #cb2f2f, #C42D2D);
+  background-image: -moz-linear-gradient(top, #cb2f2f, #C42D2D);
+  background-image: -ms-linear-gradient(top, #cb2f2f, #C42D2D);
+  background-image: -o-linear-gradient(top, #cb2f2f, #C42D2D);
+  background-image: linear-gradient(to bottom, #cb2f2f, #C42D2D);
   -webkit-border-radius: 5;
   -moz-border-radius: 5;
   border-radius: 5px;
-  color: #ffffff;
+  color: black;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
 
