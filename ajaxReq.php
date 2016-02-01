@@ -27,7 +27,7 @@ if ($req = "names") {
 		$reply[] = array($row['ID'], $row['NAME']);
 	}
 	*/
-	echo json_encode($reply);
+	echo json_encode(array(array(1,json_encode($result))));
 } else {
 	echo json_encode(array("Math" , "Science", "Test"));
 }
