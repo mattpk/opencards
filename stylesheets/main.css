@@ -116,6 +116,11 @@ li:before {
   text-align: center;
 }
 
+#page {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
 
 #buttonwrapper2 .btn {
   width:40%;
