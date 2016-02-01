@@ -50,8 +50,6 @@ if ($req == "names") {
 		}
 		/* close statement */
 		$stmt->close();
-	} else {
-		$reply = false;
 	}
 	echo json_encode($reply);
 } else {
