@@ -101,17 +101,12 @@ li:before {
   margin-right: 4px;
   display:inline-block;
   width:25%;
-  background: #cb2f2f;
-  background-image: -webkit-linear-gradient(top, #cb2f2f, #C42D2D);
-  background-image: -moz-linear-gradient(top, #cb2f2f, #C42D2D);
-  background-image: -ms-linear-gradient(top, #cb2f2f, #C42D2D);
-  background-image: -o-linear-gradient(top, #cb2f2f, #C42D2D);
-  background-image: linear-gradient(to bottom, #cb2f2f, #C42D2D);
+  background: #bdc3c7;
   -webkit-border-radius: 5;
   -moz-border-radius: 5;
   border-radius: 5px;
   color: black;
-  padding: 10px 20px 10px 20px;
+  padding: 5px;
   text-decoration: none;
 
     -webkit-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.43);
@@ -122,11 +117,6 @@ li:before {
 }
 
 .btn:hover {
-  background: #de3c3c;
-  background-image: -webkit-linear-gradient(top, #de3c3c, #cb2f2f);
-  background-image: -moz-linear-gradient(top, #de3c3c, #cb2f2f);
-  background-image: -ms-linear-gradient(top, #de3c3c, #cb2f2f);
-  background-image: -o-linear-gradient(top, #de3c3c, #cb2f2f);
-  background-image: linear-gradient(to bottom, #de3c3c, #cb2f2f);
+  background: #ecf0f1;
   text-decoration: none;
 }
