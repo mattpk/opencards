@@ -74,6 +74,15 @@ body {
   text-align: center;
 }
 
+ul {
+  list-style: none;
+  padding-left: 1.2em;
+  text-indent: -1.2em;
+}
+
 li:before {
   content: "»";
+  display: block;
+  float: left;
+  width: 1.2em;
 }
