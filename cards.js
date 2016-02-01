@@ -36,7 +36,7 @@ function onShuffle() {
 	}
 	var newCards = [];
 	while (cards.length > 0) {
-		newCards.push(cards[getRandomInt(0,cards.length)]);
+		newCards.push(cards.splice(getRandomInt(0,cards.length), 1)[0]);
 	}
 	cards = newCards;
 	updateCard();
@@ -47,7 +47,7 @@ function onEdit() {
 }
 
 function updateCard() {
-	console.log("updating with index: " + index + ", flipped: " + flipped[index]? 1 : 0);
+	console.log("updating with index: " + index + ", flipped: " + flipped[index]? 1 : 0); 
 	$("#cardtext").text(cards[index][flipped[index]? 1 : 0]);
 	$("#page").text((index+1) + "/" + cards.length);
 }
