@@ -16,7 +16,7 @@ if($db->connect_errno > 0) {
 
 $req = htmlspecialchars($_POST['req']);
 
-$reply = array();
+$reply = array(array(1,"First"));
 
 if ($req = "names") {
 	if (!$result = $db->query("SELECT * FROM `Decks`")) {
