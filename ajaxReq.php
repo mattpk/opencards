@@ -1,5 +1,5 @@
 <?php
-/*
+
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 $server = $url["host"];
@@ -13,7 +13,7 @@ $db = new mysqli($server, $username, $password, $name);
 if($db->connect_errno > 0) {
 	die('Unable to connect to database [' . $db->connect_error . ']');
 }
-*/
+
 echo json_encode(array(array(1,"connected")));
 /*
 $req = htmlspecialchars($_POST['req']);
