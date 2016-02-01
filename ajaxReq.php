@@ -1,4 +1,5 @@
 <?php
+include 'log.php';
 
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
@@ -28,25 +29,28 @@ if ($req == "names") {
 } elseif ($req == "deck") {
 	$tableName = "t_" . htmlspecialchars($_POST['id']);
 	$reply = array($tableName,array());
+
+	console_log("tablename: " . $tablename);
+
 	/* create a prepared statement */
 	if ($stmt = $db->prepare("SELECT * FROM ?")) {
 
-	    /* bind parameters for markers */
-	    $stmt->bind_param("s", $tableName);
+		/* bind parameters for markers */
+		$stmt->bind_param("s", $tableName);
 
-	    /* execute query */
-	    $stmt->execute();
+		/* execute query */
+		$stmt->execute();
 
-	    /* bind result variables */
-	    $stmt->bind_result($front, $back);
+		/* bind result variables */
+		$stmt->bind_result($front, $back);
 
-	    /* fetch values */
-	    while($stmt->fetch()) {
-	    	$reply[1][] = array($front, $back);
-	    }
+		/* fetch values */
+		while($stmt->fetch()) {
+			$reply[1][] = array($front, $back);
+		}
 
-	    /* close statement */
-	    $stmt->close();
+		/* close statement */
+		$stmt->close();
 	} else {
 		$reply = false;
 	}
