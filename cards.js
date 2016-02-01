@@ -95,7 +95,7 @@ if (getExists) {
 		}
 		console.log(JSON.stringify(cards));
 
-		$(documement).ready(function() {
+		$(document).ready(function() {
 			updateCard();
 		});
 		// initialize cards
