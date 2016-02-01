@@ -99,11 +99,11 @@ li:before {
   display:inline-block;
   width:33%;
   background: #cb2f2f;
-  background-image: -webkit-linear-gradient(top, #cb2f2f, #a82020);
-  background-image: -moz-linear-gradient(top, #cb2f2f, #a82020);
-  background-image: -ms-linear-gradient(top, #cb2f2f, #a82020);
-  background-image: -o-linear-gradient(top, #cb2f2f, #a82020);
-  background-image: linear-gradient(to bottom, #cb2f2f, #a82020);
+  background-image: -webkit-linear-gradient(top, #cb2f2f, #B52A2A);
+  background-image: -moz-linear-gradient(top, #cb2f2f, #B52A2A);
+  background-image: -ms-linear-gradient(top, #cb2f2f, #B52A2A);
+  background-image: -o-linear-gradient(top, #cb2f2f, #B52A2A);
+  background-image: linear-gradient(to bottom, #cb2f2f, #B52A2A);
   -webkit-border-radius: 5;
   -moz-border-radius: 5;
   border-radius: 5px;
