@@ -57,8 +57,8 @@ function onEdit() {
 
 	editing = true;
 	oldtext = $('#cardtext').text();
-	$('#cardtext').replaceWith("<input type='text' id='cardtext'></input>");
-	$('#cardtext').val(oldtext);
+	// make text editable
+	$('#cardtext').attr('contenteditable','true');
 
 	// change edit button to save
 	$('#edit').replaceWith("<div class='btn' id ='save'>save</div>");
@@ -73,7 +73,6 @@ function onSave() {
 		// do ajax req for saving
 	}
 
-
 	updateCard();
 }
 
@@ -82,8 +81,8 @@ function updateCard() {
 	$('#save').replaceWith("<div class='btn' id ='edit'>edit</div>");
 	$("#edit").mouseup(onEdit); // readd listener
 
-
 	$('#cardtext').replaceWith("<span id='cardtext'></span>");
+	$('#cardtext').attr('contenteditable','false');
 
 	// flip card if needed
 	if (currentFlipped !== flipped[index]) {
