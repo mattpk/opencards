@@ -156,6 +156,7 @@ if (getExists) {
 
 			$(document).keydown(function(event){ 
 			    var key = event.which;
+			    if (editing) return;
 			    if (key == 37) { // left arrow
 			    	onBack();
 			    } else if (key == 39) { // right arrow
