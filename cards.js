@@ -3,6 +3,10 @@ if (getExists) {
 	$(".container").append("<span id = 'cardtitle'></span>");
 	$(".container").append("<div id='cardwrapper'><div id='card'></div></div>");
 	$("#card").append("<span id='cardtext'></span>");
+	$(".container").append("<div id='buttonwrapper'></div>");
+	$("#buttonwrapper").append("<div class='btn' id='prev'>Back</div>");
+	$("#buttonwrapper").append("<div class='btn' id='flip'>Swap</div>");
+	$("#buttonwrapper").append("<div class='btn' id='next'>Next</div>");
 
 	console.log("Getexists, now post requesting");
 
