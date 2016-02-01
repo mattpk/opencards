@@ -5,9 +5,9 @@ if (getExists) {
 	$(".container").append("<div id='cardwrapper'><div id='card'></div></div>");
 	$("#card").append("<span id='cardtext'></span>");
 	$(".container").append("<div id='buttonwrapper'></div>");
-	$("#buttonwrapper:nth-of-type(1)").append("<div class='btn' id='prev'>back</div>");
-	$("#buttonwrapper:nth-of-type(1)").append("<div class='btn' id='flip'>flip</div>");
-	$("#buttonwrapper:nth-of-type(1)").append("<div class='btn' id='next'>next</div>");
+	$("#buttonwrapper:first-of-type").append("<div class='btn' id='prev'>back</div>");
+	$("#buttonwrapper:first-of-type").append("<div class='btn' id='flip'>flip</div>");
+	$("#buttonwrapper:first-of-type").append("<div class='btn' id='next'>next</div>");
 	$(".container").append("<div id='buttonwrapper'></div>");
 	$("#buttonwrapper:nth-of-type(2)").append("<div class='btn' id='flipall'>flip all cards</div>");
 	$("#buttonwrapper:nth-of-type(2)").append("<div class='btn' id='shuffle'>shuffle order</div>");
