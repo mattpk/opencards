@@ -57,7 +57,7 @@ if (!$result = $db->query("SELECT `NAME` from Decks")) {
 	die('There was an error checking number of decks.');
 }
 $numDecks = $result->num_rows;
-
+/*
 if ($t_1Rows == 0 && $t_1InDecks == 0) {
 	echo ("1");
 	simpleQuery("INSERT INTO `Decks` (NAME) VALUES ('OpenCards Tutorial')", "n");
@@ -73,6 +73,7 @@ if ($t_1Rows == 0 && $t_1InDecks == 0) {
 	simpleQuery("INSERT INTO `t_1` VALUES ('Whats good my man', 'Not much, you?')", "n");
 	echo ("7");
 }
+*/
 
 console_log("t_1 rows: " . $t_1Rows);
 console_log("num decks: " . $numDecks);
