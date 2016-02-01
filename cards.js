@@ -32,7 +32,7 @@ if (getExists) {
 		console.log("title: " + title);
 		$("#cardtitle").text(title);
 
-		$("#cardtext").text(JSON.stringify(result[1]));
+		//$("#cardtext").text(JSON.stringify(result[1]));
 	});
 
 	//$('#cardtext').text("You can do it. Finish this by tonight!");
