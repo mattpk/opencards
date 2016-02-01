@@ -29,7 +29,7 @@ if ($req == "names") {
 	$id = $db->real_escape_string($_POST['id']);
 	$tableName = "t_" . $id;
 
-	$result = $db->query("SELECT `NAME` FROM `decks` WHERE `ID` = " . $id);
+	$result = $db->query("SELECT `NAME` FROM `decks` WHERE `ID` = " . $tableName);
 	$row = $result->fetch_assoc();
 	$reply[] = array($row['NAME'],array());
 
