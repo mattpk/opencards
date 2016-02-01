@@ -71,7 +71,9 @@ body {
 .footer {
   max-width: 900px;
   margin: 0 auto;
+  padding-top: 4px;
   text-align: center;
+  font-size: 10px;
 }
 
 ul {

@@ -19,7 +19,10 @@
 		
 		console_log("Deck get request: " . htmlspecialchars($_GET["deck"]));
 		?>
-		<script>var getExists = <?php echo json_encode($getExists); ?>;</script>
+		<script>
+		var getExists = <?php echo json_encode($getExists); ?>;
+		var get <?php echo json_encode($get); ?>;
+		</script>
 		<script src="cards.js"></script>
 		<?php
 		console_log($getExists ? "Get Set" : "Get Unset");

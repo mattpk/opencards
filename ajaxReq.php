@@ -17,7 +17,7 @@ if($db->connect_errno > 0) {
 $req = htmlspecialchars($_POST['req']);
 
 
-if ($req = "names") {
+if ($req == "names") {
 	if (!$result = $db->query("SELECT * FROM `decks`")) {
 		die('Unable to load deck list. [' . $db->connect_error . ']');
 	}
@@ -25,6 +25,30 @@ if ($req = "names") {
 		$reply[] = array($row['ID'], $row['NAME']);
 	}	
 	echo json_encode($reply);
+} elseif ($req == "deck") {
+	$tableName = "t_" . htmlspecialchars($_POST['id']);
+	$reply = array($tableName,array());
+	/* create a prepared statement */
+	if ($stmt = $db->prepare("SELECT * FROM ?")) {
+
+	    /* bind parameters for markers */
+	    $stmt->bind_param("s", $tableName);
+
+	    /* execute query */
+	    $stmt->execute();
+
+	    /* bind result variables */
+	    $stmt->bind_result($front, $back);
+
+	    /* fetch values */
+	    while($stmt->fetch()) {
+	    	$reply[1][] = array($front, $back);
+	    }
+
+	    /* close statement */
+	    $stmt->close();
+	}
+	return $reply;
 } else {
 	echo json_encode(array("Math" , "Science", "Test"));
 }

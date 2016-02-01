@@ -1,8 +1,23 @@
 if (getExists) {
 	// check if deck exists, put deck
+
+	$(".container").append("<span id = 'cardtitle'></span>");
 	$(".container").append("<div id='cardwrapper'><div id='card'></div></div>");
 	$("#card").append("<span id ='cardtext'></span>");
-	$('#cardtext').text("You can do it. Finish this by tonight!");
+
+	$.post("ajaxReq.php", {req: "deck", id: get}).done(function(data) {
+		// i expect an array of the id, and then a 2d array of front/back/
+		var result = JSON.parse(data);
+		var title;
+		if (!deck) {
+			title = "Oops, deck not found!";
+		} else {
+			title = result[0];
+		}
+		$("#cardtitle").text(title);
+	});
+
+	//$('#cardtext').text("You can do it. Finish this by tonight!");
 } else {
 	// get and write names
 	$(".container").append("Select a deck to view:");
