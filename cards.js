@@ -47,7 +47,8 @@ function onEdit() {
 }
 
 function updateCard() {
-	$("#cardtext").text(cards[index][flipped[index]]? 1 : 0);
+	console.log("updating with index: " + index + ", flipped: " + flipped[index]? 1 : 0);
+	$("#cardtext").text(cards[index][flipped[index]? 1 : 0]);
 	$("#page").text((index+1) + "/" + cards.length);
 }
 
@@ -60,7 +61,7 @@ if (getExists) {
 	$("#card").append("<div id='page'></div>");
 
 	$(".container").append("<div class='buttonwrapper'></div>");
-	$(".buttonwrapper").append("<div class='btn' id='prev'>back</div>");
+	$(".buttonwrapper").append("<div class='btn' id='back'>back</div>");
 	$(".buttonwrapper").append("<div class='btn' id='flip'>flip</div>");
 	$(".buttonwrapper").append("<div class='btn' id='next'>next</div>");
 	$(".container").append("<div class='buttonwrapper' id='buttonwrapper2'></div>");
