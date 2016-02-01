@@ -93,8 +93,8 @@ body {
   -moz-appearance: textfield-multiline;
   -webkit-appearance: textarea;
   border: 1px solid gray;
-  background-color: gray;
-  opacity: 0.3;
+  background: rgb(0, 0, 0); /* Fallback for older browsers without RGBA-support */
+  background: rgba(0, 0, 0.3);
 }
 
 .footer {
