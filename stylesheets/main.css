@@ -95,6 +95,8 @@ li:before {
 }
 
 .btn {
+  margin-top: 4px;
+  display:inline-block;
   width:33%;
   background: #cb2f2f;
   background-image: -webkit-linear-gradient(top, #cb2f2f, #a82020);
@@ -112,6 +114,8 @@ li:before {
     -webkit-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.43);
   -moz-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.43);
   box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.43);
+
+  text-align: center;
 }
 
 .btn:hover {
