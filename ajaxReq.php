@@ -18,7 +18,7 @@ if($db->connect_errno > 0) {
 $req = htmlspecialchars($_POST['req']);
 
 
-if ($req == "names") {
+if ($req === "names") {
 	if (!$result = $db->query("SELECT * FROM `decks`")) {
 		die('Unable to load deck list. [' . $db->connect_error . ']');
 	}
@@ -26,13 +26,13 @@ if ($req == "names") {
 		$reply[] = array($row['ID'], $row['NAME']);
 	}	
 	echo json_encode($reply);
-} elseif ($req == "deck") {
-	$id = htmlspecialchars($_POST['id']);
+} elseif ($req === "deck") {
+	$id = mysqli_real_escape_string(htmlspecialchars($_POST['id']));
 	$tableName = "t_" . $id;
 
 	console_log("tablename: " . $tablename);
 
-	$result = $db->query("SELECT `NAME` FROM `decks` WHERE ID");
+	$result = $db->query("SELECT `NAME` FROM `decks` WHERE ID = $id");
 	$row = $result->fetch_assoc();
 	$reply[] = array($row['NAME'],array());
 
