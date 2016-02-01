@@ -50,7 +50,7 @@ function onEdit() {
 }
 
 function updateCard() {
-	console.log("updating with index: " + index + ", flipped: " + flipped[index]? 1 : 0); 
+	console.log("updating with index: " + index + ", flipped: " + (flipped[index]? 1 : 0) + "."); 
 	$("#cardtext").text(cards[index][flipped[index]? 1 : 0]);
 	$("#page").text((index+1) + "/" + cards.length);
 }
@@ -105,7 +105,7 @@ if (getExists) {
 		// initialize cards
 
 		// put listeners for all buttons.
-		$(".cardwrapper .backwrapper").mouseup(onCard);
+		$(".cardwrapper, .backwrapper").mouseup(onCard);
 		$("#flip").mouseup(onFlip);
 		$("#back").mouseup(onBack);
 		$("#next").mouseup(onNext);
