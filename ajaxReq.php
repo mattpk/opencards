@@ -33,7 +33,7 @@ if ($req == "names") {
 		die('Unable to find deck in db. [' . $db->connect_error . ']');
 	}
 	$row = $result->fetch_assoc();
-	$reply[] = array($row['NAME'] , array());
+	$name = $row['name'];
 
 	/* create a prepared statement */
 	if ($stmt = $db->prepare("SELECT * FROM ?")) {
@@ -46,11 +46,12 @@ if ($req == "names") {
 		$stmt->bind_result($front, $back);
 		/* fetch values */
 		while($stmt->fetch()) {
-			$reply[1][] = array($front, $back);
+			$table[] = array($front, $back);
 		}
 		/* close statement */
 		$stmt->close();
 	}
+	$reply = array($name,$table);
 	echo json_encode($reply);
 } else {
 	echo json_encode(array("Uhoh" , "Why", "We here?"));
