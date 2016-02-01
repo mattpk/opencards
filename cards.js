@@ -21,7 +21,7 @@ function onBack() {
 function onFlip() {
 	console.log("flip");
 
-	$(".cardwrapper .backwrapper").toggleClass(".cardwrapper .backwrapper");
+	$(".cardwrapper .backwrapper").toggleClass("cardwrapper backwrapper");
 
 	flipped[index] = !flipped[index];
 	updateCard();
