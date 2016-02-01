@@ -5,7 +5,7 @@ if (getExists) {
 	$('#cardtext').text("You can do it. Finish this by tonight!");
 } else {
 	// get and write names
-	$(".container").append("Select a Deck to view: <br />");
+	$(".container").append("Select a deck to view:");
 	$(".container").append("<ul></ul>");
 	$.post("ajaxReq.php", {req: "names"}).done(function(data) {
 		var names = JSON.parse(data);
