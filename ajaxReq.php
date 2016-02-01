@@ -32,5 +32,4 @@ if ($req = "names") {
 	echo json_encode(array("Math" , "Science", "Test"));
 }
 */
-$db.close();
 ?>
