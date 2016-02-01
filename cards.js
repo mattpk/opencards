@@ -1,6 +1,8 @@
 // global vars
 var cards, flipped, index;
 var currentFlipped = false;
+var editing = false;
+var oldtext = "";
 
 // an int between min and max, exclusive of max.
 function getRandomInt(min, max) {
@@ -46,11 +48,36 @@ function onShuffle() {
 	updateCard();
 }
 
+function onNew() {
+	console.log("new");
+}
+
 function onEdit() {
 	console.log("edit");
+
+	editing = true;
+	oldtext = $('#cardtext').text();
+	$('#cardtext').replaceWith("<input type='text' id='cardtext'></input>");
+	$('#cardtext').val(oldtext);
+
+	// change edit button to save
+	$('#edit').replaceWith("<div class='btn' id ='save'>save</div>");
+}
+
+function onSave() {
+	var newtext = $('#cardtext').val();
+	if (oldtext !== newtext) {
+		// save locally
+		cards[index][flipped[index]? 1 : 0] = newtext;
+		// do ajax req for saving
+	}
+	updateCard();
 }
 
 function updateCard() {
+	// make sure it's save
+	$('#save').replaceWith("<div class='btn' id ='edit'>edit</div>");
+	$('#cardtext').replaceWith("<span id='cardtext'></span>");
 
 	// flip card if needed
 	if (currentFlipped !== flipped[index]) {
@@ -114,11 +141,11 @@ if (getExists) {
 
 			$(document).keydown(function(event){ 
 			    var key = event.which;
-			    if (key == 37) {
+			    if (key == 37) { // left arrow
 			    	onBack();
-			    } else if (key == 39) {
+			    } else if (key == 39) { // right arrow
 			    	onNext();
-			    } else if (key == 38 || key == 40 || key == 32) {
+			    } else if (key == 38 || key == 40 || key == 32) { // up, down arrow and space bar
 			    	onFlip();
 			    }
 			});
@@ -133,6 +160,8 @@ if (getExists) {
 		$("#next").mouseup(onNext);
 		$("#edit").mouseup(onEdit);
 		$("#shuffle").mouseup(onShuffle);
+		$("#new").mouseup(onNew);
+		$("#save").mouseup(onSave);
 
 
 	});

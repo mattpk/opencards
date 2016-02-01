@@ -163,3 +163,7 @@ li:before {
   background: #ecf0f1;
   text-decoration: none;
 }
+
+#save {
+  color: #cb2f2f;
+}
