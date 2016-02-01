@@ -4,13 +4,13 @@ if (getExists) {
 	$(".container").append("<span id = 'cardtitle'></span>");
 	$(".container").append("<div id='cardwrapper'><div id='card'></div></div>");
 	$("#card").append("<span id='cardtext'></span>");
-	$(".container").append("<div id='buttonwrapper'></div>");
-	$("#buttonwrapper:first-of-type").append("<div class='btn' id='prev'>back</div>");
-	$("#buttonwrapper:first-of-type").append("<div class='btn' id='flip'>flip</div>");
-	$("#buttonwrapper:first-of-type").append("<div class='btn' id='next'>next</div>");
-	$(".container").append("<div id='buttonwrapper'></div>");
-	$("#buttonwrapper:nth-of-type(2)").append("<div class='btn' id='flipall'>flip all cards</div>");
-	$("#buttonwrapper:nth-of-type(2)").append("<div class='btn' id='shuffle'>shuffle order</div>");
+	$(".container").append("<div class='buttonwrapper'></div>");
+	$(".buttonwrapper").append("<div class='btn' id='prev'>back</div>");
+	$(".buttonwrapper").append("<div class='btn' id='flip'>flip</div>");
+	$(".buttonwrapper").append("<div class='btn' id='next'>next</div>");
+	$(".container").append("<div class='buttonwrapper' id='buttonwrapper2'></div>");
+	$("#buttonwrapper2").append("<div class='btn' id='flipall'>flip all cards</div>");
+	$("#buttonwrapper2").append("<div class='btn' id='shuffle'>shuffle order</div>");
 
 
 	console.log("Getexists, now post requesting");

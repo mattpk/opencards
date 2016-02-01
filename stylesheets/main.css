@@ -89,7 +89,7 @@ li:before {
   width: 1.2em;
 }
 
-#buttonwrapper{
+.buttonwrapper {
   margin: 0 auto;
   min-width: 300px;
   text-align:center;
