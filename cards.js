@@ -77,7 +77,7 @@ if (getExists) {
 	$(".buttonwrapper").append("<div class='btn' id='next'>next</div>");
 	$(".container").append("<div class='buttonwrapper' id='buttonwrapper2'></div>");
 	$("#buttonwrapper2").append("<div class='btn' id='edit'>edit</div>");
-	$("#buttonwrapper2").append("<div class='btn' id='shuffle'>new</div>");
+	$("#buttonwrapper2").append("<div class='btn' id='new'>new</div>");
 	$("#buttonwrapper2").append("<div class='btn' id='shuffle'>shuffle</div>");
 
 
