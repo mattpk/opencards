@@ -1,6 +1,8 @@
 <?php
 include 'log.php';
 
+console_log("we're golden");
+
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 $server = $url["host"];
@@ -33,7 +35,7 @@ if ($req == "names") {
 
 	console_log("tablename: " . $tablename);
 
-	$result = $db->query("SELECT `NAME` FROM `decks` WHERE ID = {$id}");
+	$result = $db->query("SELECT `NAME` FROM `decks` WHERE ID = " . $id);
 	$row = $result->fetch_assoc();
 	$reply[] = array($row['NAME'],array());
 
