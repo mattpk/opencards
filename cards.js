@@ -63,11 +63,14 @@ function onEdit() {
 	// change edit button to save
 	$('#edit').replaceWith("<div class='btn' id ='save'>save</div>");
 	$("#save").mouseup(onSave);
+
+	// make card unclickable
+	$('.cardwrapper, .backwrapper').off('mouseup');
 }
 
 function onSave() {
 	var newtext = $('#cardtext').val();
-	if (oldtext !== newtext) {
+	if (newtext && oldtext !== newtext) {
 		// save locally
 		cards[index][flipped[index]? 1 : 0] = newtext;
 		// do ajax req for saving
@@ -77,12 +80,16 @@ function onSave() {
 }
 
 function updateCard() {
+	// the following is to fix an unfinished save
 	// make sure it's save
 	$('#save').replaceWith("<div class='btn' id ='edit'>edit</div>");
 	$("#edit").mouseup(onEdit); // readd listener
 
 	$('#cardtext').replaceWith("<span id='cardtext'></span>");
 	$('#cardtext').attr('contenteditable','false');
+
+	$(".cardwrapper, .backwrapper").mouseup(onCard);
+	
 
 	// flip card if needed
 	if (currentFlipped !== flipped[index]) {
