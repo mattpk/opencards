@@ -27,10 +27,14 @@ if ($req == "names") {
 	}	
 	echo json_encode($reply);
 } elseif ($req == "deck") {
-	$tableName = "t_" . htmlspecialchars($_POST['id']);
-	$reply = array($tableName,array());
+	$id = htmlspecialchars($_POST['id']);
+	$tableName = "t_" . $id;
 
 	console_log("tablename: " . $tablename);
+
+	$result = $db->query("SELECT `NAME` FROM `decks` WHERE ID");
+	$row = $result->fetch_assoc();
+	$reply[] = array($row['NAME'],array());
 
 	/* create a prepared statement */
 	if ($stmt = $db->prepare("SELECT * FROM ?")) {

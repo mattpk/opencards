@@ -16,6 +16,7 @@ if (getExists) {
 		} else {
 			title = result[0];
 		}
+		console.log("title: " + title);
 		$("#cardtitle").text(title);
 	});
 
