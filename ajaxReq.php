@@ -16,7 +16,7 @@ if($db->connect_errno > 0) {
 $req = htmlspecialchars($_POST['req']);
 
 
-if ($req == "names") {
+if ($req === "names") {
 	if (!$result = $db->query("SELECT * FROM `decks`")) {
 		die('Unable to load deck list. [' . $db->connect_error . ']');
 	}
@@ -24,7 +24,7 @@ if ($req == "names") {
 		$reply[] = array($row['ID'], $row['NAME']);
 	}	
 	echo json_encode($reply);
-} elseif ($req == "deck") {
+} elseif ($req === "deck") {
 
 	$id = $db->real_escape_string($_POST['id']);
 	$tableName = "t_" . $id;
@@ -44,6 +44,8 @@ if ($req == "names") {
 
 	$reply = array($name,$table);
 	echo json_encode($reply);
+} else if ($req === "edit") {
+
 } else {
 	echo json_encode(array("Uhoh" , "Why", "We here?"));
 }

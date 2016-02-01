@@ -67,6 +67,14 @@ function onEdit() {
 	$('#edit').replaceWith("<div class='btn' id ='save'>save</div>");
 	$("#save").mouseup(onSave);
 
+	$("#cardtext").keydown(function(e){
+	    // Enter was pressed without shift key
+	    if (e.keyCode == 13 && !e.shiftKey)
+	    {
+	        e.preventDefault();
+	        onSave();
+	    }
+	});
 
 	// make card unclickable
 	$('.cardwrapper, .backwrapper').off('mouseup');
