@@ -1,3 +1,6 @@
+// global vars
+var cards, flipped, index;
+
 // an int between min and max, exclusive of max.
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -68,8 +71,8 @@ if (getExists) {
 	console.log("Getexists, now post requesting");
 
 	// defining variables for movement
-	var flipped = [];
-	var index = 0;
+	flipped = [];
+	index = 0;
 
 	$.post("ajaxReq.php", {req: "deck", id: get}).done(function(data) {
 		// i expect an array of the id, and then a 2d array of front/back/
@@ -86,7 +89,7 @@ if (getExists) {
 		console.log("title: " + title);
 		$("#cardtitle").text(title);
 
-		var cards = result[1];
+		cards = result[1];
 		for (var i = 0; i < cards.length; i++) {
 			flipped.push(false);
 		}
