@@ -42,6 +42,25 @@ body {
 
 }
 
+#backwrapper {
+
+  width: 100%;
+  padding-bottom: 40%; /* 16:9 */
+  position: relative;
+
+  margin: 0 auto;
+  background-color: #fff78c;
+  background-size: 100% 1.2em;
+  border-radius: 0.4em;
+
+  -webkit-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.43);
+  -moz-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.43);
+  box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.43);
+
+  cursor:pointer;
+
+}
+
 @media all and (min-width: 300px)  {  .container  { font-size:0.9em;  } }
 @media all and (min-width: 350px)  {  .container  { font-size:1.0em;  } }
 @media all and (min-width: 400px)  {  .container  { font-size:1.1em;  } }

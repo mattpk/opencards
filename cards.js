@@ -1,3 +1,48 @@
+// an int between min and max, exclusive of max.
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function onNext() {
+	index = Math.max(index+1, cards.length-1);
+	updateCard();
+}
+
+function onBack() {
+	index = Math.min(0, index-1);
+	updateCard();
+}
+
+function onFlip() {
+	flipped[index] = !flipped[index];
+	updateCard();
+}
+
+function onCard() {
+	onFlip();
+}
+
+function onShuffle() {
+	for (var i = 0; i < flipped.length; i++) {
+		flipped[i] = false;
+	}
+	var newCards = [];
+	while (cards.length > 0) {
+		newCards.push(cards[getRandomInt(0,cards.length)]);
+	}
+	cards = newCards;
+	updateCard();
+}
+
+function onEdit() {
+
+}
+
+function updateCard() {
+	$("#cardtext").text(cards[index][flipped[index]]);
+	$("#page").text(index + "/" + cards.length);
+}
+
 if (getExists) {
 	// check if deck exists, put deck
 	// set up cards and buttons
@@ -17,6 +62,10 @@ if (getExists) {
 
 	console.log("Getexists, now post requesting");
 
+	// defining variables for movement
+	var flipped = [];
+	var index = 0;
+
 	$.post("ajaxReq.php", {req: "deck", id: get}).done(function(data) {
 		// i expect an array of the id, and then a 2d array of front/back/
 		var result = JSON.parse(data);
@@ -31,12 +80,27 @@ if (getExists) {
 		}
 		console.log("title: " + title);
 		$("#cardtitle").text(title);
-		console.log(result[1]);
-		console.log(JSON.stringify(result[1]));
-		$("#cardtext").text(JSON.stringify(result[1]));
+
+		var cards = result[1];
+		for (var i = 0; i < cards.length; i++) {
+			flipped.push(false);
+		}
+		console.log(JSON.stringify(cards));
+		$("#cardtext").text(cards[0][0]);
+		
+		// initialize cards
+
+		// put listeners for all buttons.
+		$("#cardwrapper").click(onCard());
+		$("#flip").click(onFlip());
+		$("#back").click(onBack());
+		$("#next").click(onNext());
+		$("#edit").click(onEdit());
+		$("#shuffle").click(onShuffle());
+
+
 	});
 
-	//$('#cardtext').text("You can do it. Finish this by tonight!");
 } else {
 	// get and write names
 	$(".container").append("Select a deck to view:");
