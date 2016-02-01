@@ -33,7 +33,7 @@ if ($req == "names") {
 		die('Unable to find deck in db. [' . $db->connect_error . ']');
 	}
 	$row = $result->fetch_assoc();
-	$reply[] = array($row['NAME'],array());
+	$reply[] = array($row['NAME'] , array());
 
 	/* create a prepared statement */
 	if ($stmt = $db->prepare("SELECT * FROM ?")) {
