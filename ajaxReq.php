@@ -30,28 +30,19 @@ if ($req == "names") {
 	$tableName = "t_" . $id;
 
 	if (!$result = $db->query("SELECT `NAME` FROM `decks` WHERE `ID` = $id")) {
-		die('Unable to find deck in db. [' . $db->connect_error . ']');
+		die('Unable to find id in decks. [' . $db->connect_error . ']');
 	}
 	$row = $result->fetch_assoc();
 	$name = $row['NAME'];
 
-	/* create a prepared statement */
-	if ($stmt = $db->prepare("SELECT * FROM ?")) {
-
-		/* bind parameters for markers */
-		$stmt->bind_param("s", $tableName);
-		/* execute query */
-		$stmt->execute();
-		/* bind result variables */
-		$stmt->bind_result($front, $back);
-		/* fetch values */
-		while($stmt->fetch()) {
-			$table[] = array($front, $back);
-		}
-		/* close statement */
-		$stmt->close();
+	if (!$result = $db->query("SELECT * FROM $tableName")) {
+		die('Unable to fetch table. [' . $db->connect_error . ']');
 	}
-	$reply = array($tableName,$table);
+	while($row = $result->fetch_assoc()) {
+		$table[] = array($row['FRONT'], $row['BACK']);
+	}
+
+	$reply = array($name,$table);
 	echo json_encode($reply);
 } else {
 	echo json_encode(array("Uhoh" , "Why", "We here?"));
