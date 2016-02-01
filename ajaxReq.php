@@ -26,10 +26,10 @@ if ($req == "names") {
 	echo json_encode($reply);
 } elseif ($req == "deck") {
 
-	$id = mysqli_real_escape_string(htmlspecialchars($_POST['id']));
+	$id = $db->real_escape_string($_POST['id']);
 	$tableName = "t_" . $id;
 
-	$result = $db->query("SELECT `NAME` FROM `decks` WHERE ID = " . $id);
+	$result = $db->query("SELECT `NAME` FROM `decks` WHERE `ID` = " . $id);
 	$row = $result->fetch_assoc();
 	$reply[] = array($row['NAME'],array());
 
