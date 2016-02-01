@@ -60,7 +60,7 @@ function updateCard() {
 	}
 	console.log("updating with index: " + index + ", flipped: " + (flipped[index]? 1 : 0) + "."); 
 	$("#cardtext").text(cards[index][flipped[index]? 1 : 0]);
-	$("#page").text((index+1) + "/" + cards.length);
+	$(".page, .pageback").text((index+1) + "/" + cards.length);
 }
 
 if (getExists) {
