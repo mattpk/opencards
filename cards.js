@@ -1,5 +1,6 @@
 // global vars
 var cards, flipped, index;
+var currentFlipped = false;
 
 // an int between min and max, exclusive of max.
 function getRandomInt(min, max) {
@@ -20,10 +21,6 @@ function onBack() {
 
 function onFlip() {
 	console.log("flip");
-
-	$(".cardwrapper, .backwrapper").toggleClass("cardwrapper backwrapper");
-	$(".page, .pageback").toggleClass("page pageback");
-
 	flipped[index] = !flipped[index];
 	updateCard();
 }
@@ -35,6 +32,9 @@ function onCard() {
 
 function onShuffle() {
 	console.log("shuffle");
+
+
+
 	for (var i = 0; i < flipped.length; i++) {
 		flipped[i] = false;
 	}
@@ -51,6 +51,13 @@ function onEdit() {
 }
 
 function updateCard() {
+
+	// flip card if needed
+	if (currentFlipped !== flipped[index]) {
+		$(".cardwrapper, .backwrapper").toggleClass("cardwrapper backwrapper");
+		$(".page, .pageback").toggleClass("page pageback");
+		currentFlipped = !currentFlipped;
+	}
 	console.log("updating with index: " + index + ", flipped: " + (flipped[index]? 1 : 0) + "."); 
 	$("#cardtext").text(cards[index][flipped[index]? 1 : 0]);
 	$("#page").text((index+1) + "/" + cards.length);
