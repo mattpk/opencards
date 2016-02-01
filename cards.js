@@ -82,14 +82,17 @@ function onSave() {
 function updateCard() {
 	// the following is to fix an unfinished save
 	// make sure it's save
-	$('#save').replaceWith("<div class='btn' id ='edit'>edit</div>");
-	$("#edit").mouseup(onEdit); // readd listener
+	if (editing) {
+		$('#save').replaceWith("<div class='btn' id ='edit'>edit</div>");
+		$("#edit").mouseup(onEdit); // readd listener
 
-	$('#cardtext').replaceWith("<span id='cardtext'></span>");
-	$('#cardtext').attr('contenteditable','false');
+		$('#cardtext').replaceWith("<span id='cardtext'></span>");
+		$('#cardtext').attr('contenteditable','false');
 
-	$(".cardwrapper, .backwrapper").mouseup(onCard);
-	
+		$(".cardwrapper, .backwrapper").mouseup(onCard);
+		editing = false;
+	}
+
 
 	// flip card if needed
 	if (currentFlipped !== flipped[index]) {
