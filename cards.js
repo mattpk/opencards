@@ -116,8 +116,8 @@ function onSave() {
 function deleteCard() {
 	cards.splice(index, 1);
 	flipped.splice(index, 1);
-	if (index === cards.length-1) {
-		index = cards.length-2;
+	if (index == cards.length) {
+		index--;
 	}
 	currentFlipped = flipped[index];
 }
