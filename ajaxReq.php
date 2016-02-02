@@ -95,7 +95,7 @@ if ($req === "names") {
 
 } else if ($req === "new") {
 	$tableName = "t_" . $_POST['id'];
-	$frontText = 'Press edit to change the front text.';
+	$frontText = 'Enter front text';
 	$backText = 'Press edit to change the back text.';
 
 	if (tableExists($db, $tableName)) {

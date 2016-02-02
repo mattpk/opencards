@@ -61,7 +61,7 @@ function onNew() {
 function onEdit() {
 	console.log("edit");
 
-	editing = true;
+
 	oldtext = $('#cardtext').text();
 	// make text editable
 	$('#cardtext').attr('contenteditable','true');
@@ -89,7 +89,7 @@ function onEdit() {
 
 	// set focus
 	$('#cardtext').selectText();
-
+	editing = true;
 }
 
 function onSave() {
