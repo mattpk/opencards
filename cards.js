@@ -62,7 +62,8 @@ function onEdit() {
 	console.log("edit");
 
 	// set focus
-	SelectText('cardtext');
+	$('#cardtext').focus();
+	$('#cardtext').selectText();
 
 	editing = true;
 	oldtext = $('#cardtext').text();
@@ -224,20 +225,19 @@ if (getExists) {
 }
 
 //selects text
-function SelectText(element) {
-    var doc = document
-        , text = doc.getElementById(element)
-        , range, selection
-    ;    
-    if (doc.body.createTextRange) {
-        range = document.body.createTextRange();
-        range.moveToElementText(text);
-        range.select();
+jQuery.fn.selectText = function() {
+  var range, selection;
+  return this.each(function() {
+    if (document.body.createTextRange) {
+      range = document.body.createTextRange();
+      range.moveToElementText(this);
+      range.select();
     } else if (window.getSelection) {
-        selection = window.getSelection();        
-        range = document.createRange();
-        range.selectNodeContents(text);
-        selection.removeAllRanges();
-        selection.addRange(range);
+      selection = window.getSelection();
+      range = document.createRange();
+      range.selectNodeContents(this);
+      selection.removeAllRanges();
+      selection.addRange(range);
     }
-}
+  });
+};
