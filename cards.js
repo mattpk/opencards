@@ -119,7 +119,6 @@ function deleteCard() {
 	if (index == cards.length) {
 		index--;
 	}
-	currentFlipped = flipped[index];
 }
 
 function updateCard() {
