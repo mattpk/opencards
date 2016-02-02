@@ -35,8 +35,6 @@ function onCard() {
 function onShuffle() {
 	console.log("shuffle");
 
-
-
 	for (var i = 0; i < flipped.length; i++) {
 		flipped[i] = false;
 	}
@@ -56,7 +54,7 @@ function onEdit() {
 	console.log("edit");
 
 	// set focus
-	 document.getElementById("cardtext").focus();
+	$("#cardtext").selectText();
 
 	editing = true;
 	oldtext = $('#cardtext').text();
@@ -91,6 +89,8 @@ function onSave() {
 		// save locally
 		cards[index][flipped[index]? 1 : 0] = newtext;
 		// do ajax req for saving
+
+		//$.post("ajaxReq.php", {req: "edit", })
 	}
 
 	updateCard();
@@ -148,7 +148,7 @@ if (getExists) {
 	index = 0;
 
 	$.post("ajaxReq.php", {req: "deck", id: get}).done(function(data) {
-		// i expect an array of the id, and then a 2d array of front/back/
+		// i expect an array of the id, and then a 2d array of front/back/id,
 		var result = JSON.parse(data);
 		var title;
 		console.log(result);
@@ -208,3 +208,21 @@ if (getExists) {
 		}
 	});
 }
+
+//selects text
+jQuery.fn.selectText = function(){
+   var doc = document;
+   var element = this[0];
+   console.log(this, element);
+   if (doc.body.createTextRange) {
+       var range = document.body.createTextRange();
+       range.moveToElementText(element);
+       range.select();
+   } else if (window.getSelection) {
+       var selection = window.getSelection();        
+       var range = document.createRange();
+       range.selectNodeContents(element);
+       selection.removeAllRanges();
+       selection.addRange(range);
+   }
+};

@@ -39,7 +39,7 @@ if ($req === "names") {
 		die('Unable to fetch table. [' . $db->connect_error . ']');
 	}
 	while($row = $result->fetch_assoc()) {
-		$table[] = array($row['FRONT'], $row['BACK']);
+		$table[] = array($row['ID'], $row['FRONT'], $row['BACK']);
 	}
 
 	$reply = array($name,$table);
