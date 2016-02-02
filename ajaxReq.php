@@ -68,8 +68,11 @@ if ($req === "names") {
 	    $stmt->execute();
 	    $stmt->close();
 	}
+	echo " this works";
+	/*
 	$reply = array($flipped, $id, $tableName, $cardid, $text);
 	echo json_encode($reply);
+	*/
 } else {
 	echo json_encode(array("Uhoh" , "Why", "We here?"));
 }
