@@ -106,7 +106,7 @@ function onSave() {
 	}
 
 	if (cards[index][0] === '' && cards[index][1] === '') {
-		if (index -== 0) {
+		if (index === 0) {
 			deleteDeck();
 		} else {
 			deleteCard();
@@ -259,7 +259,7 @@ if (getExists) {
 }
 
 function name() {
-	
+
 }
 
 //selects text
