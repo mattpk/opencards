@@ -105,7 +105,7 @@ function onSave() {
 		});
 	}
 
-	if (cards[index][0] === '' && cards[index][1] === '') {
+	if (cards[index][0] === '' && cards[index][1] === '' && index !== 0) {
 		deleteCard();
 	}
 
