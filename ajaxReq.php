@@ -127,8 +127,9 @@ if ($req === "names") {
 	$stmt = $db->prepare($query);
 	$stmt->bind_param('s', $name);
 	$stmt->execute();
-	$stmt->close();
+	$stmt->store_result();
 	echo json_encode(($stmt->num_rows === 1));
+	$stmt->close();
 } else {
 	echo json_encode(array("Not" , "Valid", "Request"));
 }
