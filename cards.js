@@ -214,13 +214,13 @@ if (getExists) {
 			    	onNext();
 			    } else if (key == 38 || key == 40 || key == 32) { // up, down arrow and space bar
 			    	onFlip();
-			    } else if (key == 69) { // e
+			    }/* else if (key == 69) { // e
 			    	onEdit();
 			    } else if (key == 83) { // s
 			    	onShuffle();
 			    } else if (key == 78) { // n
 			    	onNew();
-			    }
+			    }*/
 			});
 
 		});
