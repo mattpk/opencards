@@ -51,8 +51,10 @@ if ($req === "names") {
 	$cardid = $_POST['cardid'];
 	$text = $_POST['text'];
 
+	echo json_encode($tableName);
+
 	// check that it exists
-	if (!$result = $db->query("SHOW TABLES LIKE \'$tableName\'")) {
+	if (!$result = $db->query("SHOW TABLES LIKE '" . $tableName . ".")) {
 		echo json_encode("FAILED for $tableName to EXIST.");
 		die("There was an error checking if $tableName exists");
 	}
