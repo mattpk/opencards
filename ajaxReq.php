@@ -97,7 +97,7 @@ if ($req === "names") {
 	$tableName = "t_" . $_POST['id'];
 
 	if (tableExists($db, $tableName)) {
-		$query = "INSERT INTO $tableName (FRONT, BACK) VALUES ('', '')";
+		$query = "INSERT INTO $tableName (FRONT, BACK) VALUES (' ', ' ')";
 
 		if (!$result = $db->query($query)) {
 			die('Unable to add new card. [' . $db->connect_error . ']');

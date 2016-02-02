@@ -91,8 +91,8 @@ function onEdit() {
 }
 
 function onSave() {
-	var newtext = $('#cardtext').text();
-	if (newtext && oldtext !== newtext) {
+	var newtext = $('#cardtext').text().substring(0,255); // strips characters too long.
+	if (newtext && newtext !== ' ' && oldtext !== newtext) {
 		// save locally
 		cards[index][flipped[index]? 1 : 0] = newtext;
 		// do ajax req for saving

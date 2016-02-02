@@ -95,6 +95,7 @@ body {
   border: 1px solid gray;
   background: rgb(255, 255, 255); /* Fallback for older browsers without RGBA-support */
   background: rgba(255, 255, 255, 0.3);
+  min-width: 5%;
 }
 
 .footer {
