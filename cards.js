@@ -86,7 +86,7 @@ function onEdit() {
 	// make card unclickable
 	$('.cardwrapper, .backwrapper').off('mouseup');
 
-	
+
 	// set focus
 	$('#cardtext').selectText();
 
@@ -105,7 +105,21 @@ function onSave() {
 		});
 	}
 
+	if (cards[index][0] === '' && cards[index][1] === '') {
+		deleteCard();
+	}
+
 	updateCard();
+}
+
+//deletes card.
+function deleteCard() {
+	cards.splice(index, 1);
+	flipped.splice(index, 1);
+	if (index === cards.length-1) {
+		index = cards.length-2;
+	}
+	currentFlipped = flipped[index];
 }
 
 function updateCard() {
