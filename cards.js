@@ -207,7 +207,7 @@ if (getExists) {
 
 	});
 
-} else {
+} else { // get doesn't exist.
 	// get and write names
 	$(".container").append("Select a deck to view:");
 	$(".container").append("<ul></ul>");
@@ -217,6 +217,9 @@ if (getExists) {
 			$(".container ul").append("<li><a href = './?deck=" + names[x][0] + "'>" + names[x][1] + "</a></li>");
 		}
 	});
+
+	// put the new deck button
+	$(".container").append("<div class='add'>Add a new deck</div>");
 }
 
 //selects text

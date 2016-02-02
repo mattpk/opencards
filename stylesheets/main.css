@@ -3,6 +3,10 @@ a {
   text-decoration: none;
 }
 
+.add {
+  color: #cb2f2f;
+}
+
 body {
   background-image: url("../img/textured_paper.png");
   font-family: 'Roboto', sans-serif;
