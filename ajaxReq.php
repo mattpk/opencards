@@ -60,11 +60,25 @@ if ($req === "names") {
 		die("There was an error checking if $tableName exists");
 	}
 
-	$side = $flipped ? 'BACK' : 'FRONT';
+	$side = $flipped==='true' ? 'BACK' : 'FRONT';
 
 	$reply = array($flipped, $side, $id, $tableName, $cardid, $text, $side);
-	echo json_encode($reply);
 
+	/* create a prepared statement */
+	if (($result->num_rows > 0) && ($stmt = $mysqli->prepare("UPDATE " . $tableName . " SET " . $side . " = ? WHERE ID = ?"))) {
+
+	    /* bind parameters for markers */
+	    $stmt->bind_param('ss', $text, $cardid);
+
+	    /* execute query */
+	    $stmt->execute();
+	    
+	    if ($stmt->errno) {
+	      echo "FAILURE!!! " . $stmt->error;
+	    }
+	    else echo json_encode("Updated {$stmt->affected_rows} rows");
+	    $stmt->close();
+	}
 	
 } else if ($req === "new") {
 
