@@ -56,9 +56,11 @@ if ($req === "names") {
 		die("There was an error checking if $tableName exists");
 	}
 
+	echo json_encode(array($flipped, $id, $tableName, $cardid, $text));
+
 	/* create a prepared statement */
 	$side = $flipped? 'FRONT' : 'BACK';
-	if (($result->num_rows > 0) && $stmt = $mysqli->prepare("UPDATE $tableName SET $side = ? WHERE `ID` = ?")) {
+	if (($result->num_rows > 0) && ($stmt = $mysqli->prepare("UPDATE $tableName SET $side = ? WHERE `ID` = ?"))) {
 
 	    /* bind parameters for markers */
 	    $stmt->bind_param("ss", $text, $cardid);
@@ -67,6 +69,7 @@ if ($req === "names") {
 	    $stmt->execute();
 	    $stmt->close();
 	}
+
 } else {
 	echo json_encode(array("Uhoh" , "Why", "We here?"));
 }
