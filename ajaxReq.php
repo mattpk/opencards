@@ -65,23 +65,6 @@ if ($req === "names") {
 	echo json_encode($reply);
 
 
-	/* create a prepared statement */
-	if (($result->num_rows > 0) && ($stmt = $mysqli->prepare("UPDATE $tableName SET $side = ? WHERE ID = ?"))) {
-
-	    /* bind parameters for markers */
-	    $stmt->bind_param('ss', $text, $cardid);
-
-	    /* execute query */
-	    $stmt->execute();
-	    
-	    if ($stmt->errno) {
-	      echo "FAILURE!!! " . $stmt->error;
-	    }
-	    else echo json_encode("Updated {$stmt->affected_rows} rows");
-
-
-	    $stmt->close();
-	}
 	
 } else if ($req === "new") {
 
