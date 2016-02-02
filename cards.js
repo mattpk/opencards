@@ -91,8 +91,8 @@ function onSave() {
 		// do ajax req for saving
 
 		$.post("ajaxReq.php", {req: "edit", id:get, cardid: cards[index][3], flipped: cards[index][2], text: newtext}).done(function(data){ 
-			console.log(data);
-			console.log(JSON.parse(data));
+			console.log("test");
+			//console.log(JSON.parse(data));
 		});
 	}
 
