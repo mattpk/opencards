@@ -115,14 +115,17 @@ function onSave() {
 //deletes card.
 function deleteCard() {
 	console.log("deleting");
+
+	// delete on db first
+	$.post("ajaxReq.php", {req: "delete", id: get, cardid: cards[index][2]}).done(function(data) {
+		console.log(data);
+	});
+
 	cards.splice(index, 1);
 	flipped.splice(index, 1);
 	if (index == cards.length) {
 		index--;
 	}
-	$.post("ajaxReq.php", {req: "delete", id: get, cardid: cards[index][2]}).done(function(data) {
-		console.log(data);
-	});
 }
 
 function updateCard() {
