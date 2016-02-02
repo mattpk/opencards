@@ -114,12 +114,15 @@ function onSave() {
 
 //deletes card.
 function deleteCard() {
+	console.log("deleting");
 	cards.splice(index, 1);
 	flipped.splice(index, 1);
 	if (index == cards.length) {
 		index--;
 	}
-	$.post("ajaxReq.php", {req: "delete", cardid: get});
+	$.post("ajaxReq.php", {req: "delete", cardid: get}).done(function(data) {
+		console.log(data);
+	});
 }
 
 function updateCard() {
