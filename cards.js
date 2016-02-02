@@ -235,7 +235,7 @@ if (getExists) {
 
 	});
 
-} else { // get doesn't exist.
+} else { // get doesn't exist ##############################
 	// get and write names
 	$(".container").append("Select a deck to view:");
 	$(".container").append("<ul></ul>");
@@ -253,13 +253,16 @@ if (getExists) {
 		$(".add").click(function() {
 			$('.add').replaceWith("<span id='instruct'>Choose a name for your deck: </span>" +
 				"<input type='text' maxlength='63' /><input type='button' value='Create' onclick='return name();'/>");
-
 		});
 	});
 }
 
 function name() {
-
+	var name = $("input:text").val().substring(0,63);
+	$.post("ajaxReq.php", {req:"taken", name: name}).done(function(data) {
+		var taken = JSON.parse(data);
+		console.log(taken);
+	});
 }
 
 //selects text

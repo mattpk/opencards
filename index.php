@@ -16,8 +16,6 @@
 		// $db
 		$getExists = isset($_GET["deck"]);
 		$get = $_GET["deck"];
-		
-		console_log("Deck get request: " . htmlspecialchars($_GET["deck"]));
 		?>
 		<script>
 		var getExists = <?php echo json_encode($getExists); ?>;
@@ -25,7 +23,6 @@
 		</script>
 		<script src="cards.js"></script>
 		<?php
-		console_log($getExists ? "Get Set" : "Get Unset");
 		$db->close();
 		?>
 	</div>

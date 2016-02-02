@@ -9,11 +9,15 @@ a {
 }
 
 input {
-  margin: 0;
-  padding: 0;
+  margin: 0 2% 0 0;
+  padding: 1% 2% 1% 2%;
   border: 1 px solid;
-  background: none;
+  background-color: rgba(255,255,255,0.4);
   font-size: inherit;
+}
+
+input ~ input {
+  background-color: #dde4e6;
 }
 
 body {
@@ -42,8 +46,8 @@ body {
   margin: 0 auto;
   background-color: #fff78c;
   background-image: 
-  linear-gradient(90deg, transparent 79px, #F08080 79px, #F08080 81px, transparent 81px),
-  linear-gradient(#abced4 .1em, transparent .1em);
+  linear-gradient(90deg, transparent 79px, rgba(240,128,128,0.5) 79px, rgba(240,128,128,0.5) 81px, transparent 81px),
+  linear-gradient(rgba(171,206,212,0.5) .1em, transparent .1em);
   background-size: 100% 1.2em;
   border-radius: 0.4em;
 

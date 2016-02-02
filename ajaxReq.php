@@ -121,7 +121,15 @@ if ($req === "names") {
 		$stmt->close();
 		echo json_encode("success");
 	} else echo json_encode("failure deleting");
+} else if ($req === "taken") {
+	$name = $_POST['name'];
+	$query = "SELECT * FROM `decks` WHERE NAME = ?";
+	$stmt = $db->prepare($query);
+	$stmt->bind_param('s', $name);
+	$stmt->execute();
+	$stmt->close();
+	echo json_encode(($stmt->num_rows === 1));
 } else {
-	echo json_encode(array("Uhoh" , "Why", "We here?"));
+	echo json_encode(array("Not" , "Valid", "Request"));
 }
 ?>
