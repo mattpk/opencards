@@ -145,7 +145,7 @@ if ($req === "names") {
 	$query = "CREATE TABLE t_{$id} (ID int AUTO_INCREMENT, FRONT TINYTEXT, BACK TINYTEXT, PRIMARY KEY(ID))";
 	$db->query($query);
 	// add first row
-	$query = "INSERT INTO t_{$id} (FRONT, BACK) VALUES ('Here's your new deck. You can now edit and add cards. Remember to edit both sides!, 'Press edit to change.')";
+	$query = "INSERT INTO t_{$id} (FRONT, BACK) VALUES ('Here's your new deck. You can now edit and add cards. Remember to edit both sides!', 'Press edit to change.')";
 	$db->query($query);
 	echo json_encode($id);
 } else {
