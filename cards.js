@@ -105,8 +105,12 @@ function onSave() {
 		});
 	}
 
-	if (cards[index][0] === '' && cards[index][1] === '' && index !== 0) {
-		deleteCard();
+	if (cards[index][0] === '' && cards[index][1] === '') {
+		if (index -== 0) {
+			deleteDeck();
+		} else {
+			deleteCard();
+		}
 	}
 
 	updateCard();
@@ -127,6 +131,8 @@ function deleteCard() {
 		index--;
 	}
 }
+
+// deletes deck.
 
 function updateCard() {
 	// the following is to fix an unfinished save
@@ -242,6 +248,18 @@ if (getExists) {
 
 	// put the new deck button
 	$(".container").append("<div class='add'>Add a new deck</div>");
+	// make clickable
+	$(document).ready(function() {
+		$(".add").click(function() {
+			$('.add').replaceWith("<span id='instruct'>Choose a name for your deck: </span>" +
+				"<input type='text' maxlength='63' /><input type='button' value='Create' onclick='return name();'/>");
+
+		});
+	});
+}
+
+function name() {
+	
 }
 
 //selects text

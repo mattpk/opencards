@@ -5,6 +5,15 @@ a {
 
 .add {
   color: #cb2f2f;
+  cursor: pointer;
+}
+
+input {
+  margin: 0;
+  padding: 0;
+  border: 1 px solid;
+  background: none;
+  font-size: inherit;
 }
 
 body {
@@ -139,9 +148,9 @@ li:before {
   display:inline-block;
   width:25%;
   background: #dde4e6;
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
-  border-radius: 5px;
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
   color: black;
   padding: 5px;
   text-decoration: none;
