@@ -73,7 +73,7 @@ if ($req === "names") {
 	//echo json_encode($query);
 
 	/* create a prepared statement */
-	if (($result->num_rows > 0) && ($stmt = $mysqli->prepare($query))) {
+	if (($result->num_rows > 0) && ($stmt = $db->prepare($query))) {
 
 	    /* bind parameters for markers */
 	    $stmt->bind_param('si', $text, $cardid);
