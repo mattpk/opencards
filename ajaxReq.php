@@ -64,17 +64,6 @@ if ($req === "names") {
 
 	$reply = array($flipped, $id, $tableName, $cardid, $text, $side);
 	echo json_encode($reply);
-
-	/* create a prepared statement */
-	if (($result->num_rows > 0) && ($stmt = $mysqli->prepare("UPDATE $tableName SET $side = ? WHERE `ID` = ?"))) {
-
-	    /* bind parameters for markers */
-	    $stmt->bind_param("ss", $text, $cardid);
-
-	    /* execute query */
-	    $stmt->execute();
-	    $stmt->close();
-	}
 	
 } else if ($req === "new") {
 
