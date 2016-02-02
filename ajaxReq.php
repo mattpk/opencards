@@ -4,6 +4,16 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+function tableExists($db, $tableName) {
+	// check that it exists
+	$que = "SHOW TABLES LIKE '" . $tableName . "'";
+	if (!$result = $db->query($que)) {
+		echo json_encode("FAILED for $tableName to EXIST.");
+		die("There was an error checking if $tableName exists");
+	}
+	return $result->num_rows > 0;
+}
+
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 $server = $url["host"];
@@ -57,23 +67,18 @@ if ($req === "names") {
 	$cardid = intval($_POST['cardid']);
 	$text = $_POST['text'];
 
-	$que = "SHOW TABLES LIKE '" . $tableName . "'";
 
 	// check that it exists
-	if (!$result = $db->query($que)) {
-		echo json_encode("FAILED for $tableName to EXIST.");
-		die("There was an error checking if $tableName exists");
-	}
+
+	$exists = tableExists($db, $tableName);
 
 	$side = $flipped==='true' ? 'BACK' : 'FRONT';
-
-	$reply = array($flipped, $side, $id, $tableName, $cardid, $text, $side);
 
 	$query = "UPDATE " . $tableName . " SET " . $side . " = ? WHERE ID = ?";
 	//echo json_encode($query);
 
 	/* create a prepared statement */
-	if (($result->num_rows > 0) && ($stmt = $db->prepare($query))) {
+	if ($exists && ($stmt = $db->prepare($query))) {
 
 	    /* bind parameters for markers */
 	    $stmt->bind_param('si', $text, $cardid);
@@ -89,7 +94,17 @@ if ($req === "names") {
 	}
 
 } else if ($req === "new") {
+	$tableName = "t_" . $_POST['id'];
 
+	if (tableExists($db, $tableName)) {
+		$query = "INSERT INTO $tableName (FRONT, BACK) VALUES ('', '')";
+
+		if (!$result = $db->query($query)) {
+			die('Unable to add new card. [' . $db->connect_error . ']');
+		}
+		// now return the card
+	}
+	echo json_encode(array('','',$db->insert_id));
 } else {
 	echo json_encode(array("Uhoh" , "Why", "We here?"));
 }

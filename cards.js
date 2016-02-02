@@ -48,6 +48,13 @@ function onShuffle() {
 
 function onNew() {
 	console.log("new");
+	$.post("ajaxReq.php", {req: "new", id: get}).done(function(data){ 
+		var card = JSON.parse(data);
+		cards.push(card);
+		flipped.push(false);
+		index = flipped.length -1;
+		updateCard();
+	});
 }
 
 function onEdit() {
