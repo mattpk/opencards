@@ -45,7 +45,28 @@ if ($req === "names") {
 	$reply = array($name,$table);
 	echo json_encode($reply);
 } else if ($req === "edit") {
+	$flipped = $_POST['flipped'];
+	$id = $_POST['id'];
+	$tableName = "t_" . $id;
+	$cardid = $_POST['cardid'];
+	$text = $_POST['text'];
 
+	// check that it exists
+	if (!$result = $db->query("SHOW TABLES LIKE $tableName")) {
+		die("There was an error checking if $tableName exists");
+	}
+
+	/* create a prepared statement */
+	$side = $flipped? 'FRONT' : 'BACK';
+	if (($result->num_rows > 0) && $stmt = $mysqli->prepare("UPDATE $tableName SET $side = ? WHERE `ID` = ?")) {
+
+	    /* bind parameters for markers */
+	    $stmt->bind_param("ss", $text, $cardid);
+
+	    /* execute query */
+	    $stmt->execute();
+	    $stmt->close();
+	}
 } else {
 	echo json_encode(array("Uhoh" , "Why", "We here?"));
 }
