@@ -95,8 +95,8 @@ if ($req === "names") {
 
 } else if ($req === "new") {
 	$tableName = "t_" . $_POST['id'];
-	$frontText = 'Enter the front text.';
-	$backText = 'Enter the back text.';
+	$frontText = 'Press edit to change the front text.';
+	$backText = 'Press edit to change the back text.';
 
 	if (tableExists($db, $tableName)) {
 		$query = "INSERT INTO $tableName (FRONT, BACK) VALUES ('$frontText', '$backText')";
@@ -130,6 +130,24 @@ if ($req === "names") {
 	$stmt->store_result();
 	echo json_encode(($stmt->num_rows === 1));
 	$stmt->close();
+} else if ($req === "add") {
+	$name = $_POST['name'];
+	//create in decks and get id
+	$query = "INSERT INTO `decks` (NAME) VALUES (?)";
+	$stmt = $db->prepare($query);
+	$stmt->bind_param('s', $name);
+	$stmt->execute();
+	$stmt->store_result();
+	$id = $stmt->insert_id;
+	$stmt->close();
+	// now create table t_id
+	// CREATE TABLE t_1 (ID int AUTO_INCREMENT, FRONT TINYTEXT, BACK TINYTEXT, PRIMARY KEY(ID));
+	$query = "CREATE TABLE t_{$id} (ID int AUTO_INCREMENT, FRONT TINYTEXT, BACK TINYTEXT, PRIMARY KEY(ID))";
+	$db->query($query);
+	// add first row
+	$query = "INSERT INTO t_1 (FRONT, BACK) VALUES ('Here's your new deck. You can now edit and add cards. Remember to edit both sides!, 'Press edit to change.')";
+	$db->query($query);
+	echo json_encode($id);
 } else {
 	echo json_encode(array("Not" , "Valid", "Request"));
 }

@@ -177,10 +177,6 @@ if (getExists) {
 	$("#buttonwrapper2").append("<div class='btn' id='new'>new</div>");
 	$("#buttonwrapper2").append("<div class='btn' id='shuffle'>shuffle</div>");
 
-
-
-	console.log("Getexists, now post requesting");
-
 	// defining variables for movement
 	flipped = [];
 	index = 0;
@@ -211,13 +207,19 @@ if (getExists) {
 
 			$(document).keydown(function(event){ 
 			    var key = event.which;
-			    if (editing) return;
+			    if (editing) return; // make sure we aren't editing
 			    if (key == 37) { // left arrow
 			    	onBack();
 			    } else if (key == 39) { // right arrow
 			    	onNext();
 			    } else if (key == 38 || key == 40 || key == 32) { // up, down arrow and space bar
 			    	onFlip();
+			    } else if (key == 69) { // e
+			    	onEdit();
+			    } else if (key == 83) { // s
+			    	onShuffle();
+			    } else if (key == 78) { // n
+			    	onNew();
 			    }
 			});
 
@@ -251,8 +253,8 @@ if (getExists) {
 	// make clickable
 	$(document).ready(function() {
 		$(".add").click(function() {
-			$('.add').replaceWith("<span id='instruct'>Choose a name for your deck: </span>" +
-				"<input type='text' maxlength='63' /><input type='button' value='Create' onclick='tryName()'/>");
+			$('.add').replaceWith("<div id ='instructblock'><span id='instruct'>Choose a name for your deck: </span>" +
+				"<input type='text' maxlength='63' /><input type='button' value='Create' onclick='tryName()'/></div>");
 		});
 	});
 }
@@ -261,7 +263,16 @@ function tryName() {
 	var name = $("input:text").val().substring(0,63);
 	$.post("ajaxReq.php", {req:"taken", name: name}).done(function(data) {
 		var taken = JSON.parse(data);
-		console.log(taken);
+		if (!taken) {
+			$.post("ajaxReq.php", {req: "add", name: name}).done(function(data) {
+				console.log(data);
+				// create new in list.
+				$(".container ul").append("<li><a href = './?deck=" + JSON.parse(data) + "'>" + name + "</a></li>");
+				$('#instructblock').replaceWith("<div>Deck created successfully!</div>");
+			});
+		} else {
+			$('#instruct').text("Name taken. Choose another name:");
+		}
 	});
 }
 
