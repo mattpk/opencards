@@ -95,16 +95,18 @@ if ($req === "names") {
 
 } else if ($req === "new") {
 	$tableName = "t_" . $_POST['id'];
+	$frontText = 'Enter the front text.';
+	$backText = 'Enter the back text.';
 
 	if (tableExists($db, $tableName)) {
-		$query = "INSERT INTO $tableName (FRONT, BACK) VALUES ('Enter the front text.', 'Enter the back text.')";
+		$query = "INSERT INTO $tableName (FRONT, BACK) VALUES ('$frontText', '$backText')";
 
 		if (!$result = $db->query($query)) {
 			die('Unable to add new card. [' . $db->connect_error . ']');
 		}
 		// now return the card
 	}
-	echo json_encode(array('','',$db->insert_id));
+	echo json_encode(array($frontText,$backText,$db->insert_id));
 } else {
 	echo json_encode(array("Uhoh" , "Why", "We here?"));
 }

@@ -62,7 +62,7 @@ function onEdit() {
 	console.log("edit");
 
 	// set focus
-	$("#cardtext").selectText();
+	SelectText('cardtext');
 
 	editing = true;
 	oldtext = $('#cardtext').text();
@@ -93,7 +93,7 @@ function onEdit() {
 
 function onSave() {
 	var newtext = $('#cardtext').text().substring(0,255); // strips characters too long.
-	if (newtext && newtext !== ' ' && oldtext !== newtext) {
+	if (oldtext !== newtext) {
 		// save locally
 		cards[index][flipped[index]? 1 : 0] = newtext;
 		// do ajax req for saving
@@ -224,19 +224,20 @@ if (getExists) {
 }
 
 //selects text
-jQuery.fn.selectText = function(){
-   var doc = document;
-   var element = this[0];
-
-   if (doc.body.createTextRange) {
-       var range = document.body.createTextRange();
-       range.moveToElementText(element);
-       range.select();
-   } else if (window.getSelection) {
-       var selection = window.getSelection();        
-       var range = document.createRange();
-       range.selectNodeContents(element);
-       selection.removeAllRanges();
-       selection.addRange(range);
-   }
-};
+function SelectText(element) {
+    var doc = document
+        , text = doc.getElementById(element)
+        , range, selection
+    ;    
+    if (doc.body.createTextRange) {
+        range = document.body.createTextRange();
+        range.moveToElementText(text);
+        range.select();
+    } else if (window.getSelection) {
+        selection = window.getSelection();        
+        range = document.createRange();
+        range.selectNodeContents(text);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    }
+}
