@@ -56,7 +56,7 @@ function onEdit() {
 	console.log("edit");
 
 	// set focus
-	$('#cardtext').focus();
+	 document.getElementById("#cardtext").focus()
 
 	editing = true;
 	oldtext = $('#cardtext').text();
