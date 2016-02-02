@@ -91,7 +91,6 @@ function onSave() {
 		// do ajax req for saving
 
 		var params = {req: "edit", id: get, cardid: cards[index][2], flipped: flipped[index], text: newtext};
-		console.log(params);
 		$.post("ajaxReq.php", params).done(function(data){ 
 			console.log("yo" + data + "_");
 		});
