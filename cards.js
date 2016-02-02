@@ -120,7 +120,7 @@ function deleteCard() {
 	if (index == cards.length) {
 		index--;
 	}
-	$.post("ajaxReq.php", {req: "delete", cardid: get}).done(function(data) {
+	$.post("ajaxReq.php", {req: "delete", id: get, cardid: cards[index][2]}).done(function(data) {
 		console.log(data);
 	});
 }
