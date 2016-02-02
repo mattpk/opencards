@@ -90,7 +90,7 @@ function onSave() {
 		cards[index][flipped[index]? 1 : 0] = newtext;
 		// do ajax req for saving
 
-		var params = {req: "edit", id: get, cardid: cards[index][3], flipped: cards[index][2], text: newtext};
+		var params = {req: "edit", id: get, cardid: cards[index][2], flipped: flipped[index], text: newtext};
 		console.log(params);
 		$.post("ajaxReq.php", params).done(function(data){ 
 			console.log(JSON.parse(data));
@@ -217,7 +217,7 @@ if (getExists) {
 jQuery.fn.selectText = function(){
    var doc = document;
    var element = this[0];
-   console.log(this, element);
+
    if (doc.body.createTextRange) {
        var range = document.body.createTextRange();
        range.moveToElementText(element);
