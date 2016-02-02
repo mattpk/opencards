@@ -61,10 +61,6 @@ function onNew() {
 function onEdit() {
 	console.log("edit");
 
-	// set focus
-	$('#cardtext').focus();
-	$('#cardtext').selectText();
-
 	editing = true;
 	oldtext = $('#cardtext').text();
 	// make text editable
@@ -89,6 +85,10 @@ function onEdit() {
 
 	// make card unclickable
 	$('.cardwrapper, .backwrapper').off('mouseup');
+
+	
+	// set focus
+	$('#cardtext').selectText();
 
 }
 
@@ -115,7 +115,7 @@ function updateCard() {
 		$('#save').replaceWith("<div class='btn' id ='edit'>edit</div>");
 		$("#edit").mouseup(onEdit); // readd listener
 
-		$('#cardtext').replaceWith("<div id='cardtext'></div>");
+		$('#cardtext').replaceWith("<span id='cardtext'></span>");
 		$('#cardtext').attr('contenteditable','false');
 
 		$(".cardwrapper, .backwrapper").mouseup(onCard);
@@ -139,7 +139,7 @@ if (getExists) {
 	// set up cards and buttons
 	$(".container").append("<span id = 'cardtitle'></span>");
 	$(".container").append("<div class='cardwrapper'><div id='card'></div></div>");
-	$("#card").append("<div id='cardtext'></div>");
+	$("#card").append("<span id='cardtext'></span>");
 	$("#card").append("<div class='page'></div>");
 
 	$(".container").append("<div class='buttonwrapper'></div>");
