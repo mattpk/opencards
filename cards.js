@@ -119,6 +119,7 @@ function deleteCard() {
 	if (index == cards.length) {
 		index--;
 	}
+	$.post("ajaxReq.php", {req: "delete", cardid: get});
 }
 
 function updateCard() {

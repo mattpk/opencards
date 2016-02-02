@@ -87,7 +87,7 @@ if ($req === "names") {
 	    $stmt->execute();
 	    
 	    if ($stmt->errno) {
-	      echo "FAILURE!!! " . $stmt->error;
+	      echo "FAILURE editing " . $stmt->error;
 	    }
 	    else echo json_encode("Updated {$stmt->affected_rows} rows");
 	    $stmt->close();
@@ -107,6 +107,20 @@ if ($req === "names") {
 		// now return the card
 	}
 	echo json_encode(array($frontText,$backText,$db->insert_id));
+} else if ($req === "delete") {
+	// delete card
+	$tableName = "t_" . $_POST['id'];
+	$cardId = intval($_POST['cardid']);
+
+	if (tableExists($db, $tableName)) {
+		$query = "DELETE FROM $tableName WHERE ID = ?";
+		$stmt = $db->prepare($query);
+		$stmt->bind_param('i', $cardId);
+		$stmt->execute();
+	
+		$stmt->close();
+		echo json_encode("success");
+	} else echo json_encode("failure deleting");
 } else {
 	echo json_encode(array("Uhoh" , "Why", "We here?"));
 }
