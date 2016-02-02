@@ -49,7 +49,7 @@ if ($req === "names") {
 	$flipped = $_POST['flipped'];
 	$id = $_POST['id'];
 	$tableName = "t_" . $id;
-	$cardid = $_POST['cardid'];
+	$cardid = intval($_POST['cardid']);
 	$text = $_POST['text'];
 
 	$que = "SHOW TABLES LIKE '" . $tableName . "'";
@@ -65,8 +65,24 @@ if ($req === "names") {
 	$reply = array($flipped, $side, $id, $tableName, $cardid, $text, $side);
 
 	$query = "UPDATE " . $tableName . " SET " . $side . " = ? WHERE ID = ?";
-	echo json_encode($query);
-	
+	//echo json_encode($query);
+
+	/* create a prepared statement */
+	if (($result->num_rows > 0) && ($stmt = $mysqli->prepare($query))) {
+
+	    /* bind parameters for markers */
+	    $stmt->bind_param('si', $text, $cardid);
+
+	    /* execute query */
+	    $stmt->execute();
+	    
+	    if ($stmt->errno) {
+	      echo "FAILURE!!! " . $stmt->error;
+	    }
+	    else echo json_encode("Updated {$stmt->affected_rows} rows");
+	    $stmt->close();
+	}
+
 } else if ($req === "new") {
 
 } else {
