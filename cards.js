@@ -54,6 +54,7 @@ function onNew() {
 		flipped.push(false);
 		index = flipped.length -1;
 		updateCard();
+		onEdit();
 	});
 }
 
