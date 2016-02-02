@@ -45,6 +45,7 @@ if ($req === "names") {
 	$reply = array($name,$table);
 	echo json_encode($reply);
 } else if ($req === "edit") {
+
 	$flipped = $_POST['flipped'];
 	$id = $_POST['id'];
 	$tableName = "t_" . $id;
@@ -62,11 +63,10 @@ if ($req === "names") {
 	$side = $flipped ? 'BACK' : 'FRONT';
 
 	$reply = array($flipped, $side, $id, $tableName, $cardid, $text, $side);
-	echo json_encode($reply);
+	//echo json_encode($reply);
 
 	/* create a prepared statement */
-
-	if (($result->num_rows > 0) && ($stmt = $mysqli->prepare("UPDATE $tableName SET $side = ? WHERE ID = ?"))) {
+	if (($result->num_rows > 0) && ($stmt = $mysqli->prepare("UPDATE " . $tableName . " SET " . $side . " = ? WHERE ID = ?"))) {
 
 	    /* bind parameters for markers */
 	    $stmt->bind_param('ss', $text, $cardid);
@@ -78,8 +78,6 @@ if ($req === "names") {
 	      echo "FAILURE!!! " . $stmt->error;
 	    }
 	    else echo json_encode("Updated {$stmt->affected_rows} rows");
-
-
 	    $stmt->close();
 	}
 	
