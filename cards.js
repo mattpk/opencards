@@ -252,12 +252,12 @@ if (getExists) {
 	$(document).ready(function() {
 		$(".add").click(function() {
 			$('.add').replaceWith("<span id='instruct'>Choose a name for your deck: </span>" +
-				"<input type='text' maxlength='63' /><input type='button' value='Create' onclick='return name();'/>");
+				"<input type='text' maxlength='63' /><input type='button' value='Create' onclick='tryName()'/>");
 		});
 	});
 }
 
-function name() {
+function tryName() {
 	var name = $("input:text").val().substring(0,63);
 	$.post("ajaxReq.php", {req:"taken", name: name}).done(function(data) {
 		var taken = JSON.parse(data);
