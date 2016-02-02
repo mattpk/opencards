@@ -90,9 +90,10 @@ function onSave() {
 		cards[index][flipped[index]? 1 : 0] = newtext;
 		// do ajax req for saving
 
-		$.post("ajaxReq.php", {req: "edit", id:get, cardid: cards[index][3], flipped: cards[index][2], text: newtext}).done(function(data){ 
-			console.log("test");
-			//console.log(JSON.parse(data));
+		var params = {req: "edit", id: get, cardid: cards[index][3], flipped: cards[index][2], text: newtext};
+		console.log(params);
+		$.post("ajaxReq.php", params).done(function(data){ 
+			console.log(JSON.parse(data));
 		});
 	}
 
