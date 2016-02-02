@@ -53,10 +53,9 @@ if ($req === "names") {
 
 	// check that it exists
 	if (!$result = $db->query("SHOW TABLES LIKE $tableName")) {
+		echo json_encode("FAILED for $tableName to EXIST.");
 		die("There was an error checking if $tableName exists");
 	}
-
-	echo json_encode(array($flipped, $id, $tableName, $cardid, $text));
 
 	/* create a prepared statement */
 	$side = $flipped? 'FRONT' : 'BACK';
@@ -69,7 +68,8 @@ if ($req === "names") {
 	    $stmt->execute();
 	    $stmt->close();
 	}
-
+	$reply = array($flipped, $id, $tableName, $cardid, $text);
+	echo json_encode($reply);
 } else {
 	echo json_encode(array("Uhoh" , "Why", "We here?"));
 }
