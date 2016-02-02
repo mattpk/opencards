@@ -52,7 +52,6 @@ if ($req === "names") {
 	$text = $_POST['text'];
 
 	$que = "SHOW TABLES LIKE '" . $tableName . "'";
-	echo json_encode($que);
 
 	// check that it exists
 	if (!$result = $db->query($que)) {
@@ -65,18 +64,24 @@ if ($req === "names") {
 	$reply = array($side, $id, $tableName, $cardid, $text, $side);
 	echo json_encode($reply);
 
+
 	/* create a prepared statement */
-	if ($result->num_rows > 0) {
-	if ($stmt = $mysqli->prepare("UPDATE $tableName SET $side = ? WHERE `ID` = ?")) {
+	if (($result->num_rows > 0) && ($stmt = $mysqli->prepare("UPDATE $tableName SET $side = ? WHERE ID = ?"))) {
 
 	    /* bind parameters for markers */
 	    $stmt->bind_param('ss', $text, $cardid);
 
 	    /* execute query */
 	    $stmt->execute();
-	    $stmt->close();
-	}}
+	    
+	    if ($stmt->errno) {
+	      echo "FAILURE!!! " . $stmt->error;
+	    }
+	    else echo json_encode("Updated {$stmt->affected_rows} rows");
 
+
+	    $stmt->close();
+	}
 	
 } else if ($req === "new") {
 
