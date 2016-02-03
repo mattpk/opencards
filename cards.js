@@ -194,6 +194,7 @@ if (getExists) {
 			title = title.replace(/,+$/, "");// removes trailing commas (weird glitch)
 		}
 		console.log("title: " + title);
+		$("title").text(title + " - OpenCards");
 		$("#cardtitle").text(title);
 		// initializing flipped array
 		cards = result[1];
